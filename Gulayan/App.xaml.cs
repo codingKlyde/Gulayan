@@ -7,8 +7,11 @@ namespace Gulayan
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            DatabaseFacade facade = new DatabaseFacade(new UserDataContext());
+            DatabaseFacade facade = new DatabaseFacade(new AdminDataContext());
             facade.EnsureCreated();
+
+            DatabaseFacade productdb = new DatabaseFacade(new ProductDataContext());
+            productdb.EnsureCreated();
         }
     }
 

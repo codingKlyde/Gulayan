@@ -2,13 +2,13 @@
 
 namespace Gulayan
 {
-    public class UserDataContext : DbContext
+    public class ProductDataContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source = DataFile.db");
+            optionsBuilder.UseSqlite("Data Source = ProductDB.db");
         }
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<Product> Products { get; set; }
     }
 }

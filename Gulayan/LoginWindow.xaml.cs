@@ -14,9 +14,9 @@ namespace Gulayan
             var inputUsername = txtbxUsername.Text;
             var inputPassword = psswrdbxPassword.Password;
 
-            using (UserDataContext context = new UserDataContext())
+            using (AdminDataContext context = new AdminDataContext())
             {
-                bool userFound = context.Users.Any(user => user.DataUsername == inputUsername && user.DataPassword == inputPassword);
+                bool userFound = context.Admins.Any(user => user.AdminUsername == inputUsername && user.AdminPassword == inputPassword);
 
                 if (userFound)
                 {
@@ -30,7 +30,7 @@ namespace Gulayan
 
         public void GainAccess()
         {
-            MainWindow main = new MainWindow();
+            CatalogWindow main = new CatalogWindow();
             main.Show();
         }
     }
