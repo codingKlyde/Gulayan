@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Input;
 
 namespace Gulayan
 {
@@ -8,6 +9,26 @@ namespace Gulayan
         {
             InitializeComponent();
         }
+
+        private void Window_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed) 
+                DragMove();
+        }
+
+        private void bttnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        private void bttnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+
+
+
 
         private void bttnSubmit_Click(object sender, RoutedEventArgs e)
         {
@@ -33,5 +54,7 @@ namespace Gulayan
             CatalogWindow main = new CatalogWindow();
             main.Show();
         }
+
+     
     }
 }

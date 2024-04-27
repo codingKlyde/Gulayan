@@ -8,9 +8,8 @@
         Title="Catalog" Height="450" Width="800" ResizeMode="NoResize" WindowState="Maximized" WindowStartupLocation="CenterScreen">
 
 
-    <Grid >
+    <Grid>
         <ListView Name="ItemList" Margin="5,20,5,0" Height="195" VerticalAlignment="Top" d:ItemsSource="{d:SampleData ItemCount=5}">
-      
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Barcode" Width="150"  DisplayMemberBinding="{Binding ProductBarcode}"/>
@@ -20,13 +19,12 @@
                     <GridViewColumn Header="Production Date" Width="150" DisplayMemberBinding="{Binding ProductProductionDate}"/>
                     <GridViewColumn Header="Expiration Date" Width="150" DisplayMemberBinding="{Binding ProductExpirationDate}"/>
                     <GridViewColumn Header="Manufacturer" Width="10" DisplayMemberBinding="{Binding ProductManufacturer}"/>
-                    <GridViewColumn Header="Stock" Width="20" DisplayMemberBinding="{Binding ProductStock}"/>
-                    <GridViewColumn Header="Weight" Width="20" DisplayMemberBinding="{Binding ProductWeight}"/>
-                    <GridViewColumn Header="Price" Width="30" DisplayMemberBinding="{Binding ProductPrice}"/>
+                    <GridViewColumn Header="Stock" Width="50" DisplayMemberBinding="{Binding ProductStock}"/>
+                    <GridViewColumn Header="Weight" Width="50" DisplayMemberBinding="{Binding ProductWeight}"/>
+                    <GridViewColumn Header="Price" Width="50" DisplayMemberBinding="{Binding ProductPrice}"/>
                 </GridView>
             </ListView.View>
         </ListView>
-
 
         <Button x:Name="ReadButton"  HorizontalAlignment="Left" Click="ReadButton_Click" Margin="90,360,0,0" VerticalAlignment="Top" Width="70" >
             <StackPanel Orientation="Horizontal">
