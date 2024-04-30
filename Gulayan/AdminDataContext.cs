@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Gulayan.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Gulayan
 {
