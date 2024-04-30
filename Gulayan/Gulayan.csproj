@@ -12,12 +12,10 @@
     <None Remove="Assets\key-20.png" />
     <None Remove="Assets\user-20.png" />
     <None Remove="bg-login.jpg" />
-    <None Remove="file.png" />
-    <None Remove="img-login.png" />
-    <None Remove="svg-login.svg" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="FontAwesome.Sharp" Version="6.3.0" />
     <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="9.0.0-preview.3.24172.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.0-preview.3.24172.4" />
   </ItemGroup>
@@ -26,9 +24,10 @@
     <Resource Include="Assets\key-20.png" />
     <Resource Include="Assets\user-20.png" />
     <Resource Include="bg-login.jpg" />
-    <Resource Include="file.png" />
-    <Resource Include="img-login.png" />
-    <Resource Include="svg-login.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\" />
   </ItemGroup>
 
 </Project>
