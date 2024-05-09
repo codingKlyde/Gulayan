@@ -1,9 +1,15 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.VisualBasic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Gulayan.Models
 {
     public class Product
     {
+        /*
+         * Things TO DO: 
+         *          Add ProductImage and ProductStatus. change ProductBarcode datatype into int
+         */
+
         [Key]
         public int ProductID { get; set; }
         public string ProductBarcode { get; set; }
