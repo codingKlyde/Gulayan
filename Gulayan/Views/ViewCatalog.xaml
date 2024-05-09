@@ -1,0 +1,75 @@
+﻿<UserControl x:Class="Gulayan.Views.ViewCatalog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Gulayan.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="550" d:DesignWidth="800">
+
+
+    <Grid Background="SkyBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+            <ComboBox HorizontalAlignment="Left"
+                      Margin="20, 20, 20, 20"
+                      Name="cmbbxFilterBy"
+                      VerticalAlignment="Top" 
+                      Width="180" />
+            <TextBox HorizontalAlignment="Left"
+                     Margin="20, 20, 20, 20"
+                     VerticalAlignment="Top" 
+                     Width="180" 
+                     x:Name="txtbxFilterInput"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1">
+            <ListView d:ItemsSource="{d:SampleData ItemCount=10}" 
+                      FontFamily="Courier New"
+                      FontSize="14"
+                      Height="300"
+                      Grid.Column="1"
+                      VerticalAlignment="Center"
+                      x:Name="lstvwProduct">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ID" Width="40" DisplayMemberBinding="{Binding ProductID}"/>
+                        <GridViewColumn Header="Barcode" Width="120" DisplayMemberBinding="{Binding ProductBarcode}"/>
+                        <GridViewColumn Header="Name" Width="110" DisplayMemberBinding="{Binding ProductName}"/>
+                        <GridViewColumn Header="Stock" Width="50" DisplayMemberBinding="{Binding ProductStock}"/>
+                        <GridViewColumn Header="Production" Width="90" DisplayMemberBinding="{Binding ProductProductionDate}"/>
+                        <GridViewColumn Header="Expiration" Width="90" DisplayMemberBinding="{Binding ProductExpirationDate}"/>
+                        <GridViewColumn Header="Weight" Width="50" DisplayMemberBinding="{Binding ProductWeight, StringFormat={}{0}g}"/>
+                        <GridViewColumn Header="Price" Width="70" DisplayMemberBinding="{Binding ProductPrice, StringFormat='₱{0:N2}'}"/>
+                        <!-- 
+                             <GridViewColumn Header="Description" Width="300" DisplayMemberBinding="{Binding ProductDescription}"/>
+                             <GridViewColumn Header="Manufacturer" Width="160" DisplayMemberBinding="{Binding ProductManufacturer}"/>
+                             <GridViewColumn Header="Type" Width="90" DisplayMemberBinding="{Binding ProductType}"/>
+                        -->
+                        </GridView>
+                </ListView.View>
+            </ListView>
+
+            <Button Click="ReadButton_Click" 
+                    HorizontalAlignment="Left"
+                    Margin="90, 0, 0, 0"
+                    Width="70"
+                    VerticalAlignment="Top" 
+                    x:Name="ReadButton">
+                <StackPanel Orientation="Horizontal">
+                    <Path Data="M 399.5625 598.46875 C 397.90565 598.46875 396.5625 599.8119 396.5625 601.46875 L 396.5625 615.46875 C 396.5625 617.12565 397.90565 618.46875 399.5625 618.46875 L 411.5625 618.46875 C 413.2194 618.46875 414.5625 617.12565 414.5625 615.46875 L 414.5625 605.46875 C 414.5625 601.60276 411.4285 598.46875 407.5625 598.46875 L 399.5625 598.46875 z M 399.5625 600.46875 L 406.5625 600.46875 L 406.5625 605.46875 L 412.5625 605.46875 L 412.5625 615.46875 C 412.5625 616.02105 412.1148 616.46875 411.5625 616.46875 L 399.5625 616.46875 C 399.01022 616.46875 398.5625 616.02105 398.5625 615.46875 L 398.5625 601.46875 C 398.5625 600.91647 399.01022 600.46875 399.5625 600.46875 z M 408.5625 600.5625 C 410.1738 600.88958 411.51355 601.99781 412.15625 603.46875 L 408.5625 603.46875 L 408.5625 600.5625 z M 400.5625 604.46875 L 400.5625 606.46875 L 404.5625 606.46875 L 404.5625 604.46875 L 400.5625 604.46875 z M 400.5625 608.46875 L 400.5625 610.46875 L 410.5625 610.46875 L 410.5625 608.46875 L 400.5625 608.46875 z M 400.5625 612.46875 L 400.5625 614.46875 L 410.5625 614.46875 L 410.5625 612.46875 L 400.5625 612.46875 z"
+                          Fill="#FF17314F"
+                          Height="15"
+                          Margin="3, 0, 0, 0"
+                          Stretch="Uniform"
+                          Width="15" />
+                    <Label Content="Refresh"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>
