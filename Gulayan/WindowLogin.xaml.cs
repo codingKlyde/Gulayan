@@ -27,8 +27,6 @@ namespace Gulayan
 
 
 
-
-
         private void bttnSubmit_Click(object sender, RoutedEventArgs e)
         {
             var inputUsername = txtbxUsername.Text;
@@ -50,7 +48,7 @@ namespace Gulayan
 
         public void GainAccess()
         {
-            CatalogWindow main = new CatalogWindow();
+            WindowMenu main = new WindowMenu();
             main.Show();
         }
     }
