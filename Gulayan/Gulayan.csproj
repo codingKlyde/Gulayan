@@ -26,8 +26,4 @@
     <Resource Include="bg-login.jpg" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\" />
-  </ItemGroup>
-
 </Project>
