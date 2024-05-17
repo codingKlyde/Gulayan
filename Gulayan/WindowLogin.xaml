@@ -6,8 +6,11 @@
         xmlns:local="clr-namespace:Gulayan"
         mc:Ignorable="d"
         
+        xmlns:icon="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        
         AllowsTransparency="True"
         Background="Transparent"
+        FontFamily="{StaticResource Ubuntu}"
         Height="450"
         MouseDown="Window_MouseDown"
         Title="Login" 
@@ -17,178 +20,169 @@
         WindowStyle="None">
 
 
-    <Border CornerRadius="10">
-        <Border.Background>
-            <ImageBrush ImageSource="/bg-login.jpg"/>
-        </Border.Background>
-        <Border  BorderThickness="3" CornerRadius="10" Opacity="0.85">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1.5*"/>
+        </Grid.ColumnDefinitions>
+        <!-- Top Control Bar -->
+        <StackPanel Grid.Column="1" Panel.ZIndex="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="25"/>
+                </Grid.ColumnDefinitions>
+                <Button BorderThickness="0"
+                        Click="bttnMinimize_Click" 
+                        Content="-"
+                        Cursor="Hand"
+                        FontFamily="Consolas"
+                        FontSize="16"
+                        Foreground="White"
+                        x:Name="bttnMinimize" 
+                        Grid.Column="1">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="{StaticResource TertiaryColor}"></Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource PrimaryColor}"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" CornerRadius="9" Height="18" Width="18">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button BorderThickness="0" 
+                        Click="bttnClose_Click" 
+                        Content="X"
+                        Cursor="Hand"
+                        FontFamily="Consolas"
+                        FontSize="12"
+                        Foreground="White" 
+                        Grid.Column="2"
+                        x:Name="bttnClose">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="{StaticResource TertiaryColor}"></Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource PrimaryColor}"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" CornerRadius="9" Height="18" Width="18">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+        </StackPanel>
+
+        <!-- COLUMN 1 -->
+        <Border CornerRadius="10, 0, 0, 10">
             <Border.Background>
-                <LinearGradientBrush EndPoint="1, 0" StartPoint="0, 1">
-                    <GradientStop Color="#000000" Offset="0"/>
-                    <GradientStop Color="{StaticResource Color2}" Offset="5"/>
+                <LinearGradientBrush EndPoint="1, 1" StartPoint="0, 0">
+                    <GradientStop Color="#7FC485" Offset="0"/>
+                    <GradientStop Color="#8ACD6B" Offset="1"/>
                 </LinearGradientBrush>
             </Border.Background>
-            <Border.BorderBrush>
-                <LinearGradientBrush EndPoint="1, 1" StartPoint="0, 0">
-                    <GradientStop Color="{StaticResource Color1}" Offset="0"/>
-                    <GradientStop Color="{StaticResource Color2}" Offset="0.75"/>
-                    <GradientStop Color="{StaticResource Color3}" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.BorderBrush>
+            <Grid>
+                <!-- Drawing -->
+                <Canvas>
+                    <Polygon Fill="#92D36E" Points="0, 20 230, 140 0, 270"/>
+                    <Polygon Fill="#92D36E" Points="100, 400 200, 370 100, 470"/>
+                    <Ellipse Canvas.Left="245"
+                             Canvas.Top="235"
+                             Fill="#92D36E" 
+                             Height="40"
+                             HorizontalAlignment="Left"
+                             Width="40"  
+                             VerticalAlignment="Center"/>
+                    <Ellipse Fill="#92D36E" 
+                             Height="20" 
+                             Margin="50, 400, 0, 0" 
+                             Width="20"/>
+                </Canvas>
+                <!-- Content -->
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock FontFamily="{StaticResource Satisfy}" Style="{StaticResource LargeTextStyle}" Text="Gulayan"/>
+                    <TextBlock Margin="25,30,25,0"
+                               Opacity="0.9"
+                               Style="{StaticResource BaseTextStyle}" 
+                               Text="Empowering you to effortlessly create, organize, and manage your inventory with simplicity and precision"/>
+                </StackPanel>
+            </Grid>
+        </Border>
 
-            <StackPanel>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="25"/>
-                        <ColumnDefinition Width="25"/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock FontFamily="Consolas"
-                               Foreground="{StaticResource TertiaryColor}" 
-                               FontSize="14" 
-                               HorizontalAlignment="Center"
-                               Text="LOGIN"  />
-                    <Button BorderThickness="0"
-                            Click="bttnMinimize_Click" 
-                            Content="-"
-                            Cursor="Hand"
-                            FontFamily="Consolas"
-                            FontSize="16"
-                            Foreground="White"
-                            x:Name="bttnMinimize" 
-                            Grid.Column="1">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="{StaticResource TertiaryColor}"></Setter>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="{StaticResource PrimaryColor}"></Setter>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Background="{TemplateBinding Background}" CornerRadius="9" Height="18" Width="18">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
-                    <Button BorderThickness="0" 
-                            Click="bttnClose_Click" 
-                            Content="X"
-                            Cursor="Hand"
-                            FontFamily="Consolas"
-                            FontSize="12"
-                            Foreground="White" 
-                            Grid.Column="2"
-                            x:Name="bttnClose">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="{StaticResource TertiaryColor}"></Setter>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="{StaticResource PrimaryColor}"></Setter>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Background="{TemplateBinding Background}" CornerRadius="9" Height="18" Width="18">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
-                </Grid>
-
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-
-                    <StackPanel Grid.Row="1" Margin="245, 50, 245, 50" HorizontalAlignment="Center">
-                            <TextBlock FontFamily="Consolas"
-                                       FontSize="14" 
-                                       FontWeight="Medium" 
-                                       Foreground="{StaticResource PrimaryColor}"
-                                       Margin="0, 35, 0, 0" 
-                                       Text="Username" />
-                            <TextBox Background="Transparent"  
-                                     BorderBrush="DarkGray"
-                                     BorderThickness="0, 0, 0, 1"
-                                     CaretBrush="LightGray" 
-                                     FontFamily="Consolas"
-                                     FontSize="14"
-                                     FontWeight="Medium"
-                                     Foreground="White"
-                                     Height="20"
-                                     Margin="0, 5, 0, 0"
-                                     Padding="5,0,0,0"
-                                     SelectionBrush="#FF4CAF50"
-                                     VerticalAlignment="Center"
-                                     x:Name="txtbxUsername" />
-
-                            <TextBlock FontFamily="Consolas" 
-                                       FontSize="14"
-                                       FontWeight="Medium" 
-                                       Foreground="{StaticResource PrimaryColor}" 
-                                       Margin="0, 20, 0, 0" 
-                                       Text="Password" />
-                            <PasswordBox Background="Transparent"
-                                         BorderThickness="0, 0, 0, 1"
-                                         CaretBrush="LightGray" 
-                                         FontFamily="Consolas" 
-                                         FontSize="14" 
-                                         FontWeight="Medium" 
-                                         Foreground="White"
-                                         Height="20"
-                                         Margin="0, 5, 0, 0"
-                                         Padding="5, 0, 0, 0"
-                                         SelectionBrush="#FF4CAF50"
-                                         VerticalAlignment="Center"
-                                         x:Name="psswrdbxPassword" />
-
-                            <Button BorderThickness="0"
-                                    Click="bttnSubmit_Click" 
-                                    Content="Login" 
-                                    Cursor="Hand"
-                                    FontFamily="Consolas"
-                                    FontSize="16"  
-                                    Foreground="Black" 
-                                    Grid.Column="2" 
-                                    x:Name="bttnSubmit"
-                                    Margin="0, 22, 0, 0">
-                                <Button.Style>
-                                    <Style TargetType="Button">
-                                        <Setter Property="Background" Value="{StaticResource SecondaryColor}"></Setter>
-                                        <Style.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Background" Value="{StaticResource PrimaryColor}"></Setter>
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </Button.Style>
-                                <Button.Template>
-                                    <ControlTemplate TargetType="Button">
-                                        <Border Background="{TemplateBinding Background}" CornerRadius="20" Height="40" Width="150">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                        </Border>
-                                    </ControlTemplate>
-                                </Button.Template>
-                            </Button>
-                        </StackPanel>
-                </Grid>
+        <!-- COLUMN 2 -->
+        <Border Background="White" CornerRadius="0, 10, 10, 0" Grid.Column="1">
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Foreground="{StaticResource PrimaryColor}" Style="{StaticResource LargeTextStyle}" Text="LOGIN"/>
+                <TextBlock Foreground="{StaticResource SecondaryColor}"
+                           Margin="0, 0, 0, 50"
+                           Style="{StaticResource BaseTextStyle}" 
+                           Text="Welcome back!"/>
+                <!-- Login -->
+                <Border BorderThickness="1"
+                        BorderBrush="{StaticResource PrimaryColor}"
+                        CornerRadius="5"
+                        Margin="110, 0, 110, 10">
+                    <Grid Margin="12, 10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <icon:IconImage Foreground="{StaticResource PrimaryColor}"
+                                        Height="15" 
+                                        Icon="UserAlt"
+                                        Width="15"/>
+                        <TextBlock MouseDown="txtblckUsername_MouseDown" 
+                                   Style="{StaticResource TextHintStyle}" 
+                                   Text="Username"
+                                   x:Name="txtblckUsername"/>
+                        <TextBox Style="{StaticResource InputStyle}" TextChanged="txtbxUsername_TextChanged" x:Name="txtbxUsername" />
+                    </Grid>
+                </Border>
+                <Border BorderThickness="1"
+                          BorderBrush="{StaticResource PrimaryColor}"
+                        CornerRadius="5"
+                        Margin="110, 0">
+                    <Grid Margin="12, 10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <icon:IconImage Foreground="{StaticResource PrimaryColor}"
+                                        Height="15" 
+                                        Icon="Key"
+                                        Width="15"/>
+                        <TextBlock MouseDown="txtblckPassword_MouseDown"
+                                   Style="{StaticResource TextHintStyle}" 
+                                   Text="Password"
+                                   x:Name="txtblckPassword"/>
+                        <PasswordBox PasswordChanged="psswrdbxPassword_PasswordChanged" Style="{StaticResource InputStyle}" x:Name="psswrdbxPassword" />
+                    </Grid>
+                </Border>
+                <Button Click="bttnSubmit_Click" 
+                        Content="Login"
+                        Style="{StaticResource SignInButtonStyle}"
+                        x:Name="bttnSubmit"/>
             </StackPanel>
         </Border>
-    </Border>
+    </Grid>
 </Window>

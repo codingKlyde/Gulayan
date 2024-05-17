@@ -11,11 +11,12 @@
  
         AllowsTransparency="True" 
         Background="Transparent"
+        FontFamily="{StaticResource Ubuntu}"
         Height="700" 
         Width="1100"
         ResizeMode="NoResize" 
         WindowStartupLocation="CenterScreen"
-        WindowStyle="None" FontFamily="Consolas">
+        WindowStyle="None">
 
 
     <Window.DataContext>
@@ -37,65 +38,82 @@
                 <ColumnDefinition Width="200" />
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <!-- Side Navigation Bar -->
-            <Border CornerRadius="10">
-                <Border.Background>
-                    <ImageBrush ImageSource="/bg-login.jpg"/>
-                </Border.Background>
-                <Border Background="White" CornerRadius="9, 0, 0, 9" Opacity="0.85">
-                    <StackPanel>
-                        <StackPanel Orientation="Horizontal" Height="35" Margin="15, 25, 0, 40" >
-                            <Image Height="30" Source="/Assets/user-20.png" />
-                            <TextBlock FontFamily="Bauhaus 93" 
-                               FontWeight="Medium"
-                               Foreground="Black" 
-                               Margin="10,0,0,0"
-                               Text="logo" 
-                               VerticalAlignment="Center" FontSize="16" />
+            <!-- COLUMN 1 -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <!-- Menu Button -->
+                <Button Style="{StaticResource MenuButtonStyle}">
+                    <icon:IconImage Foreground="{StaticResource SecondaryColor}"
+                                    Height="20"
+                                    Icon="BarsStaggered"
+                                    Width="20" />
+                </Button>
+                <!-- Side Navigation Bar -->
+                <Border Background="{StaticResource SecondaryColor}" CornerRadius="0, 50, 0, 10" Grid.Row="1">
+                    <DockPanel>
+                        <!-- Menu Logo/Avatar -->
+                        <Border Background="White"
+                                CornerRadius="100"
+                                DockPanel.Dock="Top"
+                                Height="80"
+                                HorizontalAlignment="Left"
+                                Margin="45,-30,0,35"
+                                Padding="3"
+                                Width="80">
+                            <Ellipse>
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="/bg-login.jpg" />
+                                </Ellipse.Fill>
+                            </Ellipse>
+                        </Border>
+                        <!-- Menu Buttons -->
+                        <StackPanel DockPanel.Dock="Top">
+                            <RadioButton Command="{Binding ShowDashboardCommand}"
+                                          IsChecked="True"
+                                          Style="{StaticResource MenuStyle}" 
+                                          Tag="{StaticResource PrimaryColor}">
+                                <StackPanel Orientation="Horizontal">
+                                    <icon:IconImage Icon="Home" Style="{StaticResource MenuIconStyle}" />
+                                    <TextBlock Text="Dashboard" Style="{StaticResource MenuTextStyle}" />
+                                </StackPanel>
+                            </RadioButton>
+                            <RadioButton Command="{Binding ShowCatalogCommand}" Style="{StaticResource MenuStyle}" Tag="{StaticResource PrimaryColor}">
+                                <StackPanel Orientation="Horizontal">
+                                    <icon:IconImage Icon="BoxesStacked" Style="{StaticResource MenuIconStyle}" />
+                                    <TextBlock Text="Catalog" Style="{StaticResource MenuTextStyle}" />
+                                </StackPanel>
+                            </RadioButton>
+                            <RadioButton Command="{Binding ShowCatalogCommand}" Style="{StaticResource MenuStyle}" Tag="{StaticResource PrimaryColor}">
+                                <StackPanel Orientation="Horizontal">
+                                    <icon:IconImage Icon="PeopleGroup" Style="{StaticResource MenuIconStyle}" />
+                                    <TextBlock Text="Member" Style="{StaticResource MenuTextStyle}" />
+                                </StackPanel>
+                            </RadioButton>
+                            <RadioButton Style="{StaticResource MenuStyle}" Tag="{StaticResource PrimaryColor}">
+                                <StackPanel Orientation="Horizontal">
+                                    <icon:IconImage Icon="Wrench" Style="{StaticResource MenuIconStyle}" />
+                                    <TextBlock Text="Settings" Style="{StaticResource MenuTextStyle}" />
+                                </StackPanel>
+                            </RadioButton>
                         </StackPanel>
-
-                        <RadioButton Command="{Binding ShowDashboardCommand}"
-                             IsChecked="True"
-                             Style="{StaticResource MenuStyle}" 
-                             Tag="{StaticResource PrimaryColor}">
-                            <StackPanel Orientation="Horizontal">
-                                <icon:IconImage Icon="Home" Style="{StaticResource MenuIconStyle}" />
-                                <TextBlock Text="Dashboard" Style="{StaticResource MenuTextStyle}" />
-                            </StackPanel>
-                        </RadioButton>
-                        <RadioButton Command="{Binding ShowCatalogCommand}" Style="{StaticResource MenuStyle}" Tag="{StaticResource PrimaryColor}">
-                            <StackPanel Orientation="Horizontal">
-                                <icon:IconImage Icon="BoxesStacked" Style="{StaticResource MenuIconStyle}" />
-                                <TextBlock Text="Catalog" Style="{StaticResource MenuTextStyle}" />
-                            </StackPanel>
-                        </RadioButton>
-
-                        <RadioButton Command="{Binding ShowCatalogCommand}" Style="{StaticResource MenuStyle}" Tag="{StaticResource PrimaryColor}">
-                            <StackPanel Orientation="Horizontal">
-                                <icon:IconImage Icon="PeopleGroup" Style="{StaticResource MenuIconStyle}" />
-                                <TextBlock Text="Member" Style="{StaticResource MenuTextStyle}" />
-                            </StackPanel>
-                        </RadioButton>
-
-                        <RadioButton Style="{StaticResource MenuStyle}" Tag="{StaticResource PrimaryColor}">
-                            <StackPanel Orientation="Horizontal">
-                                <icon:IconImage Icon="Wrench" Style="{StaticResource MenuIconStyle}" />
-                                <TextBlock Text="Settings" Style="{StaticResource MenuTextStyle}" />
-                            </StackPanel>
-                        </RadioButton>
-                        <RadioButton Style="{StaticResource MenuStyle}" Tag="{StaticResource PrimaryColor}">
+                        <RadioButton DockPanel.Dock="Bottom" 
+                                     Margin="15,0 , 15, 20"
+                                     Style="{StaticResource MenuStyle}" 
+                                     Tag="{StaticResource PrimaryColor}">
                             <StackPanel Orientation="Horizontal">
                                 <icon:IconImage Icon="PowerOff" Style="{StaticResource MenuIconStyle}" />
                                 <TextBlock Text="Logout" Style="{StaticResource MenuTextStyle}" />
                             </StackPanel>
                         </RadioButton>
-                    </StackPanel>
+                    </DockPanel>
                 </Border>
-            </Border>
+            </Grid>
 
-            <Border Background="White" 
-                CornerRadius="0, 9, 9, 0" 
-                Grid.Column="1">
+            <!-- COLUMN 2 -->
+            <Border CornerRadius="0, 9, 9, 0" Grid.Column="1">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="25" />
@@ -139,7 +157,7 @@
 
 
                     <!-- Page -->
-                    <ContentControl Content="{Binding CurrentChildView}" Margin="20" Grid.Row="2" />
+                    <ContentControl Content="{Binding CurrentChildView}" Grid.Row="2" />
                 </Grid>
             </Border>
         </Grid>

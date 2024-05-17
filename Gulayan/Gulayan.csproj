@@ -9,8 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Assets\key-20.png" />
-    <None Remove="Assets\user-20.png" />
+    <None Remove="Assets\Fonts\Dosis-VariableFont_wght.ttf" />
+    <None Remove="Assets\Fonts\Oswald-VariableFont_wght.ttf" />
+    <None Remove="Assets\Fonts\Satisfy-Regular.ttf" />
+    <None Remove="Assets\Fonts\Ubuntu-Regular.ttf" />
     <None Remove="bg-login.jpg" />
   </ItemGroup>
 
@@ -21,8 +23,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Assets\key-20.png" />
-    <Resource Include="Assets\user-20.png" />
+    <Resource Include="Assets\Fonts\Dosis-VariableFont_wght.ttf" />
+    <Resource Include="Assets\Fonts\Oswald-VariableFont_wght.ttf" />
+    <Resource Include="Assets\Fonts\Satisfy-Regular.ttf" />
+    <Resource Include="Assets\Fonts\Ubuntu-Regular.ttf" />
     <Resource Include="bg-login.jpg" />
   </ItemGroup>
 
