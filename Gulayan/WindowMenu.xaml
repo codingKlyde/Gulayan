@@ -23,11 +23,17 @@
         <viewModel:ViewModelMenu />
     </Window.DataContext>
     <Window.Resources>
-        <DataTemplate DataType="{x:Type viewModel:ViewModelDashboard}">
-            <local:ViewDashboard />
-        </DataTemplate>
         <DataTemplate DataType="{x:Type viewModel:ViewModelCatalog}">
-            <local:ViewCatalog />
+            <local:ViewCatalog/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:ViewModelDashboard}">
+            <local:ViewDashboard/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:ViewModelMember}">
+            <local:ViewMember/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:ViewModelSettings}">
+            <local:ViewSettings/>
         </DataTemplate>
     </Window.Resources>
 
@@ -86,13 +92,13 @@
                                     <TextBlock Text="Catalog" Style="{StaticResource MenuTextStyle}" />
                                 </StackPanel>
                             </RadioButton>
-                            <RadioButton Command="{Binding ShowCatalogCommand}" Style="{StaticResource MenuStyle}" Tag="{StaticResource PrimaryColor}">
+                            <RadioButton Command="{Binding ShowMemberCommand}" Style="{StaticResource MenuStyle}" Tag="{StaticResource PrimaryColor}">
                                 <StackPanel Orientation="Horizontal">
                                     <icon:IconImage Icon="PeopleGroup" Style="{StaticResource MenuIconStyle}" />
                                     <TextBlock Text="Member" Style="{StaticResource MenuTextStyle}" />
                                 </StackPanel>
                             </RadioButton>
-                            <RadioButton Style="{StaticResource MenuStyle}" Tag="{StaticResource PrimaryColor}">
+                            <RadioButton Command="{Binding ShowSettingsCommand}" Style="{StaticResource MenuStyle}" Tag="{StaticResource PrimaryColor}">
                                 <StackPanel Orientation="Horizontal">
                                     <icon:IconImage Icon="Wrench" Style="{StaticResource MenuIconStyle}" />
                                     <TextBlock Text="Settings" Style="{StaticResource MenuTextStyle}" />
