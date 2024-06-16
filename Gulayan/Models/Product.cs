@@ -1,26 +1,40 @@
-﻿using Microsoft.VisualBasic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Gulayan.Models
 {
     public class Product
     {
-        /*
-         * Things TO DO: 
-         *          Add ProductImage and ProductStatus. change ProductBarcode datatype into int
-         */
-
         [Key]
-        public int ProductID { get; set; }
-        public string ProductBarcode { get; set; }
+        public string ProductBatchNumber { get; set; }
+        public string ProductCategory { get; set; }
         public string ProductDescription { get; set; }
         public DateTime ProductExpirationDate { get; set; }
-        public string ProductManufacturer { get; set; }
+        public short ProductID { get; set; }
+        // public Image ProductImage { get; set; }
         public string ProductName { get; set; }
-        public decimal ProductPrice { get; set; }
-        public DateTime ProductProductionDate { get; set; }
+        public DateTime ProductRecievedDate { get; set; }
+        public string ProductSupplier { get; set; }
         public int ProductStock { get; set; }
-        public string ProductType { get; set; }
-        public float ProductWeight { get; set; }
+        // public string ProductTag { get; set; }
+        /*
+         Taste and Texture:
+            Sweet
+            Bitter
+            Crunchy
+            Juicy
+            Tender
+        Health Benefits:
+            High in Fiber
+            Rich in Vitamins
+            Antioxidant
+            Low-Calorie
+            Anti-Inflammatory
+        Organic Status:
+            Organic
+            Non-Organic
+        Regional Origin:
+            Local
+            Imported
+         */
     }
 }
