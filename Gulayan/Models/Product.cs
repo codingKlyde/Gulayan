@@ -5,15 +5,15 @@ namespace Gulayan.Models
     public class Product
     {
         [Key]
-        public string ProductBatchNumber { get; set; }
-        public string ProductCategory { get; set; }
-        public string ProductDescription { get; set; }
-        public DateTime ProductExpirationDate { get; set; }
         public short ProductID { get; set; }
+        public string? ProductBatchNumber { get; set; }
+        public string? ProductCategory { get; set; }
+        public string? ProductDescription { get; set; }
+        public DateTime ProductExpirationDate { get; set; }
         // public Image ProductImage { get; set; }
-        public string ProductName { get; set; }
+        public string? ProductName { get; set; }
         public DateTime ProductRecievedDate { get; set; }
-        public string ProductSupplier { get; set; }
+        public string? ProductSupplier { get; set; }
         public int ProductStock { get; set; }
         // public string ProductTag { get; set; }
         /*

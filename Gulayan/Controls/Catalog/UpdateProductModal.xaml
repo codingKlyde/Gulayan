@@ -1,0 +1,89 @@
+﻿<UserControl x:Class="Gulayan.Controls.Catalog.UpdateProductModal"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mashappsMateriaDesignIcons="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:views="clr-namespace:Gulayan.Views"
+             xmlns:viewModels="clr-namespace:Gulayan.ViewModels"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    
+             d:Background="White"
+             FontFamily="{StaticResource Ubuntu}"
+             mc:Ignorable="d">
+
+
+    <UserControl.Resources>
+        <Style x:Key="BaseControlStyle" TargetType="Control">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Width" Value="200"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="LabelStyle">
+            <Setter Property="Foreground" Value="{StaticResource PrimaryColor}"/>
+            <Setter Property="Margin" Value="0 8 0 4"/>
+        </Style>
+        <Style TargetType="TextBox" x:Key="InputStyle" BasedOn="{StaticResource BaseControlStyle}"/>
+        <Style TargetType="ComboBox" x:Key="CBInputStyle" BasedOn="{StaticResource BaseControlStyle}"/>
+        <Style TargetType="DatePicker" x:Key="DPInputStyle" BasedOn="{StaticResource BaseControlStyle}"/>
+    </UserControl.Resources>
+
+
+    <Border Style="{StaticResource ContainerStyle}" Width="250">
+        <StackPanel HorizontalAlignment="Center">
+            <TextBlock Style="{StaticResource ContainerTitleStyle}" Text="Update Product"/>
+
+            <TextBlock Style="{StaticResource LabelStyle}" Text="Batch Number"/>
+            <TextBox Style="{StaticResource InputStyle}" x:Name="txtbxProductBatchNumber"/>
+            <TextBlock Foreground="Red" Visibility="Collapsed" x:Name="txtblckBatchNumberError"/>
+
+            <TextBlock Style="{StaticResource LabelStyle}" Text="Category"/>
+            <ComboBox Style="{StaticResource CBInputStyle}" x:Name="cmbbxProductCategory">
+                <ComboBoxItem Content="Root"/>
+                <ComboBoxItem Content="Leaf"/>
+                <ComboBoxItem Content="Fruit"/>
+                <ComboBoxItem Content="Flower"/>
+                <ComboBoxItem Content="Stem"/>
+                <ComboBoxItem Content="Seed"/>
+            </ComboBox>
+            <TextBlock Foreground="Red" Visibility="Collapsed" x:Name="txtblckCategoryError"/>
+
+            <TextBlock Style="{StaticResource LabelStyle}" Text="Name"/>
+            <TextBox Style="{StaticResource InputStyle}" x:Name="txtbxProductName"/>
+            <TextBlock Foreground="Red" Visibility="Collapsed" x:Name="txtblckNameError"/>
+
+            <TextBlock Style="{StaticResource LabelStyle}" Text="Description"/>
+            <TextBox Style="{StaticResource InputStyle}" x:Name="txtbxProductDescription"/>
+
+            <TextBlock Style="{StaticResource LabelStyle}" Text="Recieved Date"/>
+            <DatePicker Style="{StaticResource DPInputStyle}" x:Name="dtpckrRecievedDate"/>
+            <TextBlock Foreground="Red" Visibility="Collapsed" x:Name="txtblckReceivedDateError"/>
+
+            <TextBlock Style="{StaticResource LabelStyle}" Text="Expiration Date"/>
+            <DatePicker Style="{StaticResource DPInputStyle}" x:Name="dtpckrExpirationDate"/>
+            <TextBlock Foreground="Red" Visibility="Collapsed" x:Name="txtblckExpirationDateError"/>
+
+            <TextBlock Style="{StaticResource LabelStyle}" Text="Supplier"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBox Margin="0 0 5 0"
+                         Style="{StaticResource InputStyle}"
+                         Width="180"
+                         x:Name="txtbxProductSupplier"/>
+                <Button Click="btnRandomizeSupplier_Click"
+                        FocusVisualStyle="{x:Null}"
+                        Padding="2"
+                        x:Name="btnRandomizeSupplier">
+                    <mashappsMateriaDesignIcons:PackIconMaterial Height="10" Kind="Shuffle" Width="10"/>
+                </Button>
+            </StackPanel>
+
+            <TextBlock Style="{StaticResource LabelStyle}" Text="Stock"/>
+            <TextBox Style="{StaticResource InputStyle}" x:Name="txtbxProductStock"/>
+            <TextBlock Foreground="Red" Visibility="Collapsed" x:Name="txtblckStockError"/>
+
+            <Button Click="btnUpdateProduct_Click"
+                    Content="Update Product" 
+                    Margin="0 15 0 0"
+                    Width="auto"
+                    x:Name="btnUpdateProduct"/>
+        </StackPanel>
+    </Border>
+</UserControl>

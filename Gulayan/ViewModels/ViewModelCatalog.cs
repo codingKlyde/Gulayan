@@ -2,5 +2,6 @@
 {
     public class ViewModelCatalog : ViewModelBase
     {
+
     }
 }

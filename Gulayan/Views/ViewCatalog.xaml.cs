@@ -1,4 +1,6 @@
-﻿using Gulayan.Models;
+﻿using Gulayan.Controls.Catalog;
+using Gulayan.DataContexts;
+using Gulayan.Models;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -7,29 +9,32 @@ namespace Gulayan.Views
 {
     public partial class ViewCatalog : UserControl
     {
-        public List<Product> DatabaseProducts { get; private set; }
+        public ObservableCollection<Product> DatabaseProducts { get; set; }
+
+        private UpdateProductModal updateProductModal; // Declare an instance variable
 
         public ViewCatalog()
         {
             InitializeComponent();
+            ReadProduct();
         }
-        public ObservableCollection<Product> OCDatabaseProducts { get; set; }
 
-
-        public void Read()
+        // Refresh Product
+        public void ReadProduct()
         {
             using (ProductDataContext context = new ProductDataContext())
             {
-                OCDatabaseProducts = new ObservableCollection<Product>(context.Products.ToList());
-                dtgrdVegetable.ItemsSource = OCDatabaseProducts;
+                DatabaseProducts = new ObservableCollection<Product>(context.Products.ToList());
+                dtgrdVegetable.ItemsSource = DatabaseProducts;
             }
         }
         private void bttnRefresh_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            Read();
+            ReadProduct();
         }
 
-        public void Delete()
+        // Delete Product
+        public void DeleteProduct()
         {
             using (ProductDataContext context = new ProductDataContext())
             {
@@ -41,17 +46,17 @@ namespace Gulayan.Views
 
                     context.Products.Remove(product);
                     context.SaveChanges();
-
-                    Read();
+                    ReadProduct();
+                    MessageBox.Show("Product deleted successfully!");
                 }
             }
         }
         private void bttnDelete_Click(object sender, RoutedEventArgs e)
         {
-            Delete();
+            DeleteProduct();
         }
 
-
+        // Add Product
         public void AddProduct(Product newProduct)
         {
             using (ProductDataContext context = new ProductDataContext())
@@ -59,24 +64,46 @@ namespace Gulayan.Views
                 context.Products.Add(newProduct);
                 context.SaveChanges();
             }
-
-            Read();
+            ReadProduct();
         }
-
-        private void OpenAddProductControl_Click(object sender, RoutedEventArgs e)
+        private void OpenAddProductModal_Click(object sender, RoutedEventArgs e)
         {
-
             if (ModalContent.Visibility == Visibility.Collapsed)
                 ModalContent.Visibility = Visibility.Visible;
             else
                 ModalContent.Visibility = Visibility.Collapsed;
         }
-
         // This method executes during runtime
         private void AddProductControl_ProductAdded(object sender, Product newProduct)
         {
             AddProduct(newProduct);
             ModalContent.Visibility = Visibility.Collapsed;
         }
+
+        // Update Product
+        private void OpenUpdateProductModal_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            if (button != null)
+            {
+                Product selectedProduct = button.CommandParameter as Product;
+                if (selectedProduct != null)
+                    UpdateProductControl.SetProductDetails(selectedProduct);
+            }
+
+            if (UpdateModalContent.Visibility == Visibility.Collapsed)
+                UpdateModalContent.Visibility = Visibility.Visible;
+            else
+                UpdateModalContent.Visibility = Visibility.Collapsed;
+        }
+
+
+        private void UpdateProductModal_ProductUpdated(object sender, Product newProduct)
+        {
+            ReadProduct();
+            ModalContent.Visibility = Visibility.Collapsed;
+        }
+        
+
     }
 }

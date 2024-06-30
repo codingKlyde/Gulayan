@@ -32,8 +32,4 @@
     <Resource Include="Assets\groceries.png" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controls\Dashboard\" />
-  </ItemGroup>
-
 </Project>

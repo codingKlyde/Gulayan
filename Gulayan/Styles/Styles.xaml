@@ -29,7 +29,7 @@
     </Style>
 
     <!--Component Border style -->
-    <DropShadowEffect x:Key="CustomDropShadowEffect" BlurRadius="15" Opacity="0.3" ShadowDepth="0"/>
+    <DropShadowEffect x:Key="CustomDropShadowEffect" BlurRadius="12" Opacity="0.3" ShadowDepth="0"/>
     <Style TargetType="Border" x:Key="ContainerStyle">
         <Setter Property="Background" Value="White"/>
         <Setter Property="CornerRadius" Value="10"/>

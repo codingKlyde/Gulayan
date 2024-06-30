@@ -1,7 +1,7 @@
 ﻿using Gulayan.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Gulayan
+namespace Gulayan.DataContexts
 {
     public class ProductDataContext : DbContext
     {

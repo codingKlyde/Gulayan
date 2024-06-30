@@ -1,7 +1,7 @@
 ﻿using Gulayan.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Gulayan
+namespace Gulayan.DataContexts
 {
     public class AdminDataContext : DbContext
     {
@@ -11,6 +11,5 @@ namespace Gulayan
         }
 
         public DbSet<Admin> Admins { get; set; }
-
     }
 }

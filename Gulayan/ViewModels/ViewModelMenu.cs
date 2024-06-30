@@ -47,7 +47,6 @@ namespace Gulayan.ViewModels
         // Window Content (WC)
         #region
         private ViewModelBase _wcCurrentView;
-
         public ViewModelBase WCCurrentView
         {
             get { return _wcCurrentView; }

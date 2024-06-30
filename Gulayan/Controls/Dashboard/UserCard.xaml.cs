@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace Gulayan.Controls
+namespace Gulayan.Controls.Dashboard
 {
     public partial class UserCard : UserControl
     {

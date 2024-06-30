@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="Gulayan.Controls.Dashboard.Reminder"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            xmlns:mashappsMateriaDesignIcons="http://metro.mahapps.com/winfx/xaml/iconpacks"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+            xmlns:views="clr-namespace:Gulayan.Views"
+            xmlns:viewModels="clr-namespace:Gulayan.ViewModels"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   
+            FontFamily="{StaticResource Ubuntu}"
+            d:Background="White"
+            mc:Ignorable="d"
+            Name="userCard">
+
+    
+    <UserControl.Resources>
+        <Style x:Key="ReminderTitleStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="{StaticResource SecondaryColor}"/>
+        </Style>
+        <Style x:Key="ReminderDescriptionStyle" TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+    </UserControl.Resources>
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Style="{StaticResource ContainerTitleStyle}" Text="Reminders"/>
+        <StackPanel Grid.Row="1">
+            <StackPanel Margin="0 0 0 10">
+                <TextBlock Text="Reminder 1" Style="{StaticResource ReminderTitleStyle}" />
+                <TextBlock Text="This is the first reminder." Style="{StaticResource ReminderDescriptionStyle}" />
+            </StackPanel>
+            <StackPanel Margin="0 0 0 10">
+                <TextBlock Text="Reminder 2" Style="{StaticResource ReminderTitleStyle}" />
+                <TextBlock Text="This is the second reminder." Style="{StaticResource ReminderDescriptionStyle}" />
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="Reminder 3" Style="{StaticResource ReminderTitleStyle}" />
+                <TextBlock Text="This is the third reminder." Style="{StaticResource ReminderDescriptionStyle}" />
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <!-- Add Button -->
+            <Button Margin="0 0 10 0" Style="{StaticResource R3ButtonStyle}">
+                <mashappsMateriaDesignIcons:PackIconMaterial Kind="Plus" Style="{StaticResource R3ButtonIconStyle}"/>
+            </Button>
+            <!-- Remove Button -->
+            <Button Style="{StaticResource R3ButtonStyle}">
+                <mashappsMateriaDesignIcons:PackIconMaterial Kind="Minus" Style="{StaticResource R3ButtonIconStyle}"/>
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -12,7 +12,7 @@
 
 
     <Window.DataContext>
-        <viewModels:ViewModelMenu />
+        <viewModels:ViewModelMenu/>
     </Window.DataContext>
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="boolToVisConv"/>
@@ -43,31 +43,8 @@
             </Grid.ColumnDefinitions>
             <!-- COLUMN 1 -->
             <!-- Side Navigation Bar -->
-            <Border Margin="20 20 0 20" Padding="10 0" Style="{StaticResource ContainerStyle}">
+            <Border Margin="20 20 0 20" Padding="10 0" VerticalAlignment="Center">
                 <StackPanel>
-                    <!-- Logo -->
-                    <Border Background="{StaticResource PrimaryColor}"
-                            CornerRadius="50"
-                            Height="55"
-                            Margin="0 30"
-                            Width="55">
-                        <Border Background="White"
-                                BorderThickness="1"
-                                CornerRadius="50"
-                                Height="55"
-                                Width="55">
-                            <Border.Effect>
-                                <DropShadowEffect BlurRadius="10" Color="{StaticResource Color1}" Opacity=".3"/>
-                            </Border.Effect>
-                            <!-- Icon -->
-                            <mashappsMateriaDesignIcons:PackIconMaterial Foreground="{StaticResource PrimaryColor}"
-                                            Height="25"
-                                            HorizontalAlignment="Center"
-                                            Kind="FoodVariant"
-                                            Width="25"
-                                            VerticalAlignment="Center"/>
-                        </Border>
-                    </Border>
                     <!-- Navigation -->
                     <Separator Margin="0 0 0 20" Width="45"/>
                     <RadioButton Command="{Binding ShowDashboardCommand}"
@@ -86,13 +63,7 @@
                         <mashappsMateriaDesignIcons:PackIconMaterial Kind="CogOutline" Style="{StaticResource NavButtonIconStyle}"/>
                     </RadioButton>
                     <RadioButton Command="{Binding ShowSettingsCommand}" Style="{StaticResource NavButtonStyle}" Tag="{StaticResource PrimaryColor}">
-                        <mashappsMateriaDesignIcons:PackIconMaterial Kind="AccountCogOutline" Style="{StaticResource NavButtonIconStyle}"/>
-                    </RadioButton>
-                    <RadioButton Command="{Binding ShowSettingsCommand}" Style="{StaticResource NavButtonStyle}" Tag="{StaticResource PrimaryColor}">
                         <mashappsMateriaDesignIcons:PackIconMaterial Kind="BugOutline" Style="{StaticResource NavButtonIconStyle}"/>
-                    </RadioButton>
-                    <RadioButton Command="{Binding ShowSettingsCommand}" Style="{StaticResource NavButtonStyle}" Tag="{StaticResource PrimaryColor}">
-                        <mashappsMateriaDesignIcons:PackIconMaterial Kind="Headset" Style="{StaticResource NavButtonIconStyle}" />
                     </RadioButton>
                     <Separator Margin="0 20 0 0" Width="45"/>
                 </StackPanel>
@@ -145,7 +116,7 @@
                                    Text="{Binding WHTitle}"/>
                     </StackPanel>
                     <!-- Window Content -->
-                    <ContentControl Content="{Binding WCCurrentView}" Grid.Row="2"/>
+                    <ContentControl Content="{Binding WCCurrentView}" FocusVisualStyle="{x:Null}" Grid.Row="2"/>
                 </Grid>
             </Border>
         </Grid>
