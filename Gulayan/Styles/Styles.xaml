@@ -4,19 +4,35 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
 
+    
+    
+    
+    
+    
+    
+    
     <!-- COLORS -->
-    <SolidColorBrush x:Key="PrimaryColor">#6ab04c</SolidColorBrush>
-    <SolidColorBrush x:Key="PrimaryColorLight">#81d25b</SolidColorBrush>
-    <SolidColorBrush x:Key="SecondaryColor">#4a372a</SolidColorBrush>
-    <SolidColorBrush x:Key="SecondaryColorLight">#5c4434</SolidColorBrush>
-    <SolidColorBrush x:Key="TertiaryColor">#ff7f50</SolidColorBrush>
-    <SolidColorBrush x:Key="TertiaryColorLight">#FF9960</SolidColorBrush>
-    <SolidColorBrush x:Key="AccentColor">#87ceeb</SolidColorBrush>
-    <Color x:Key="Color1">#6ab04c</Color>
-    <Color x:Key="Color1Light">#81d25b</Color>
-    <Color x:Key="Color2">#4a372a</Color>
-    <Color x:Key="Color3">#ff7f50</Color>
+    <!-- Large and Small Text & Graphics -->
+    <SolidColorBrush x:Key="PrimaryColor">#0f661c</SolidColorBrush>
+    <!-- Large and Small Text & Graphics -->
+    <SolidColorBrush x:Key="PrimaryColorLight">#2e7a3a</SolidColorBrush>
+    <!-- Large & Graphics -->
+    <SolidColorBrush x:Key="PrimaryColorLighter">#159329</SolidColorBrush>
 
+    <!-- Large and Small Text & Graphics -->
+    <SolidColorBrush x:Key="SecondaryColor">#660f59</SolidColorBrush>
+    <!-- Large and Small Text & Graphics -->
+    <SolidColorBrush x:Key="SecondaryColorLight">#792e6e</SolidColorBrush>
+    <!-- Large and Small Text & Graphics -->
+    <SolidColorBrush x:Key="SecondaryColorLighter">#9e3c8f</SolidColorBrush>
+
+    <Color x:Key="Color1">#0f661c</Color>
+    <Color x:Key="Color1Light">#2e7a3a</Color>
+    <Color x:Key="Color2">#660f59</Color>
+
+    
+    
+    
     
     <!-- UNIVERSAL -->
     <!-- Window -->

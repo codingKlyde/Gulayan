@@ -12,7 +12,7 @@
             <FontFamily x:Key="Ubuntu">Assets/Fonts/#Ubuntu</FontFamily>
            
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Styles/Styles.xaml" />
+                <ResourceDictionary Source="/Styles/Styles.xaml"/>
                 <ResourceDictionary Source="/Styles/WindowLoginStyles.xaml"/>
                 <ResourceDictionary Source="/Styles/WindowMenuStyles.xaml"/>
                 <ResourceDictionary Source="/Styles/ViewCatalogStyles.xaml"/>

@@ -22,7 +22,7 @@
                    Text="Marketing" 
                    VerticalAlignment="Center"/>
 
-        <Border Background="{StaticResource TertiaryColor}" 
+        <Border Background="{StaticResource PrimaryColor}" 
                 CornerRadius="3" 
                 Width="12"
                 Height="12"/>

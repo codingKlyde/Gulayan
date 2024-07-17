@@ -62,9 +62,6 @@
                     <RadioButton Command="{Binding ShowSettingsCommand}" Style="{StaticResource NavButtonStyle}" Tag="{StaticResource PrimaryColor}">
                         <mashappsMateriaDesignIcons:PackIconMaterial Kind="CogOutline" Style="{StaticResource NavButtonIconStyle}"/>
                     </RadioButton>
-                    <RadioButton Command="{Binding ShowSettingsCommand}" Style="{StaticResource NavButtonStyle}" Tag="{StaticResource PrimaryColor}">
-                        <mashappsMateriaDesignIcons:PackIconMaterial Kind="BugOutline" Style="{StaticResource NavButtonIconStyle}"/>
-                    </RadioButton>
                     <Separator Margin="0 20 0 0" Width="45"/>
                 </StackPanel>
             </Border>
@@ -104,7 +101,10 @@
                         </Button>
                     </StackPanel>
                     <!-- Window Header -->
-                    <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+                    <StackPanel Grid.Row="1" 
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal"
+                                VerticalAlignment="Center">
                         <mashappsMateriaDesignIcons:PackIconMaterial Foreground="{StaticResource PrimaryColor}"
                                                                      Height="20" 
                                                                      Kind="{Binding WHIcon}" 

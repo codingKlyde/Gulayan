@@ -11,31 +11,25 @@ namespace Gulayan.Controls.Dashboard
             InitializeComponent();
         }
 
-        public static readonly DependencyProperty DownPriceProperty = DependencyProperty.Register("DownPrice", typeof(string), typeof(UserCard));
+        public static readonly DependencyProperty StockProperty = DependencyProperty.Register("Stock", typeof(int), typeof(UserCard));
         public static readonly DependencyProperty ImageProperty = DependencyProperty.Register("Image", typeof(ImageSource), typeof(UserCard));
-        public static readonly DependencyProperty IsActiveProperty = DependencyProperty.Register("IsActive", typeof(bool), typeof(UserCard));
-        public static readonly DependencyProperty UpPriceProperty = DependencyProperty.Register("UpPrice", typeof(string), typeof(UserCard));
+        public static readonly DependencyProperty DateProperty = DependencyProperty.Register("Date", typeof(string), typeof(UserCard));
         public static readonly DependencyProperty TitleProperty = DependencyProperty.Register("Title", typeof(string), typeof(UserCard));
       
-        public string DownPrice
+        public int Stock
         {
-            get { return (string)GetValue(DownPriceProperty); }
-            set { SetValue(DownPriceProperty, value); }
+            get { return (int)GetValue(StockProperty); }
+            set { SetValue(StockProperty, value); }
         }
         public ImageSource Image
         {
             get { return (ImageSource)GetValue(ImageProperty); }
             set { SetValue(ImageProperty, value); }
         }
-        public bool IsActive
+        public string Date
         {
-            get { return (bool)GetValue(IsActiveProperty); }
-            set { SetValue(IsActiveProperty, value); }
-        }
-        public string UpPrice
-        {
-            get { return (string)GetValue(UpPriceProperty); }
-            set { SetValue(UpPriceProperty, value); }
+            get { return (string)GetValue(DateProperty); }
+            set { SetValue(DateProperty, value); }
         }
         public string Title
         {

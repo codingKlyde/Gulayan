@@ -1,0 +1,20 @@
+202408-1500A|Root|Edible tuber with a starchy texture. Commonly used in soups and stews.|2024-10-31|Potato|2024-08-15|Supplier A|1500|
+202409-1800B|Leaf|Nutritious leafy greens. Used in salads and as a cooking green.|2024-11-30|Spinach|2024-09-18|Supplier B|1800|
+202410-2500C|Fruit|Round, juicy fruit. High in vitamin C. Eaten fresh or in salads.|2024-12-31|Strawberry|2024-10-25|Supplier C|2500|
+202411-1200D|Flower|Edible flower buds. Nutty flavor. Used in stir-fries and salads.|2025-01-31|Broccoli|2024-11-12|Supplier D|1200|
+202412-2200E|Stem|Crunchy stalks. Used in salads and as a snack.|2025-02-28|Celery|2024-12-02|Supplier E|2200|
+202407-1700A|Seed|Small seeds in pods. Used in soups and as a protein source.|2024-09-30|Lentil|2024-07-17|Supplier A|1700|
+202409-1400B|Bulb|Pungent bulb. Used in cooking and as a seasoning.|2024-11-15|Garlic|2024-09-14|Supplier B|1400|
+202410-2000C|Tuber|Root vegetable with a sweet flavor. Used in desserts and savory dishes.|2024-12-20|Sweet Potato|2024-10-18|Supplier C|2000|
+202411-1900D|Rhizome|Spicy root. Used fresh, dried, or ground in cooking.|2024-12-10|Ginger|2024-11-19|Supplier D|1900|
+202408-2300E|Miscellaneous|Edible fungi. Earthy flavor. Used in various cuisines.|2024-10-31|Mushroom|2024-08-23|Supplier E|2300|
+202407-1500A|Leaf|Dark green leafy vegetable. Bitter flavor. Used in salads and cooking.|2024-09-30|Kale|2024-07-15|Supplier A|1500|
+202408-1800B|Root|Long, slender root vegetable. Sweet flavor. Used in salads and as a garnish.|2024-10-31|Carrot|2024-08-18|Supplier B|1800|
+202409-2500C|Fruit|Small, round fruit with a tangy flavor. Used in sauces and desserts.|2024-11-30|Raspberry|2024-09-25|Supplier C|2500|
+202410-1200D|Flower|Edible flower with a delicate flavor. Used in culinary decorations and salads.|2024-12-31|Edible Flower|2024-10-12|Supplier D|1200|
+202411-2200E|Stem|Long, green stems with a mild flavor. Used in stir-fries and soups.|2025-01-31|Asparagus|2024-11-22|Supplier E|2200|
+202412-1700A|Seed|Small round seeds. Used in salads, soups, and as a garnish.|2025-02-28|Quinoa|2024-12-17|Supplier A|1700|
+202407-1400B|Bulb|Small, round bulb with a pungent flavor. Used in cooking and as a seasoning.|2024-09-30|Shallot|2024-07-14|Supplier B|1400|
+202408-2000C|Tuber|Root vegetable with a creamy texture. Used in soups and mashed dishes.|2024-10-31|Yam|2024-08-20|Supplier C|2000|
+202409-1900D|Rhizome|Spicy root with aromatic flavor. Used fresh and dried in cooking.|2024-11-15|Turmeric|2024-09-19|Supplier D|1900|
+202410-2300E|Miscellaneous|Edible fruit with a sweet and tart flavor. Used in jams and desserts.|2024-12-20|Blueberry|2024-10-23|Supplier E|2300|

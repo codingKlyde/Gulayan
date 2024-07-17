@@ -14,6 +14,14 @@
     <None Remove="Assets\Fonts\Satisfy-Regular.ttf" />
     <None Remove="Assets\Fonts\Ubuntu-Regular.ttf" />
     <None Remove="Assets\groceries.png" />
+    <None Remove="Assets\Vegetables\aubergine.png" />
+    <None Remove="Assets\Vegetables\broccoli.png" />
+    <None Remove="Assets\Vegetables\carrot.png" />
+    <None Remove="Assets\Vegetables\kale.png" />
+    <None Remove="Assets\Vegetables\peas.png" />
+    <None Remove="Assets\Vegetables\pepper.png" />
+    <None Remove="Assets\Vegetables\tomato.png" />
+    <None Remove="Assets\Vegetables\turnip.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,6 +38,14 @@
     <Resource Include="Assets\Fonts\Satisfy-Regular.ttf" />
     <Resource Include="Assets\Fonts\Ubuntu-Regular.ttf" />
     <Resource Include="Assets\groceries.png" />
+    <Resource Include="Assets\Vegetables\aubergine.png" />
+    <Resource Include="Assets\Vegetables\broccoli.png" />
+    <Resource Include="Assets\Vegetables\carrot.png" />
+    <Resource Include="Assets\Vegetables\kale.png" />
+    <Resource Include="Assets\Vegetables\peas.png" />
+    <Resource Include="Assets\Vegetables\pepper.png" />
+    <Resource Include="Assets\Vegetables\tomato.png" />
+    <Resource Include="Assets\Vegetables\turnip.png" />
   </ItemGroup>
 
 </Project>

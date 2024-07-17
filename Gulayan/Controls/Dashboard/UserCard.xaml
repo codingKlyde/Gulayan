@@ -12,35 +12,26 @@
              Name="userCard">
 
 
-    <Border CornerRadius="10">
-        <Border.Style>
-            <Style TargetType="Border">
-                <Style.Triggers>
-                    <DataTrigger Binding="{Binding ElementName=userCard, Path=IsActive}" Value="True">
-                        <Setter Property="BorderBrush" Value="{StaticResource PrimaryColor}"/>
-                        <Setter Property="BorderThickness" Value="1"/>
-                    </DataTrigger>
-                    <Trigger Property="IsMouseOver" Value="True">
-                        <Setter Property="Background" Value="#f7f6f4"/>
-                    </Trigger>
-                </Style.Triggers>
-            </Style>
-        </Border.Style>
+    <Border Background="WhiteSmoke" 
+            CornerRadius="15" 
+            Padding="10">
         <StackPanel Orientation="Horizontal">
-            <!-- Card Image -->
-            <Border CornerRadius="10" 
-                    Height="50"
-                    Width="50">
-                <Image Height="40" Source="{Binding ElementName=userCard, Path=Image}" Width="40"/>
+            <!-- Product Image -->
+            <Border Background="LightGray" 
+                    CornerRadius="10" 
+                    Height="45"
+                    Width="45">
+                <Image Height="30" Source="{Binding ElementName=userCard, Path=Image}" Width="30"/>
             </Border>
-            <StackPanel>
-                <!-- Card Title -->
-                <TextBlock FontSize="15" 
+            <StackPanel Margin="10 0 0 0">
+                <!-- Product Name -->
+                <TextBlock d:Text="[Title]"
+                           FontSize="16" 
                            FontWeight="SemiBold" 
-                           Foreground="#214865"
+                           Foreground="{StaticResource PrimaryColor}"
                            Text="{Binding ElementName = userCard, Path = Title}"/>
                 <StackPanel Grid.Row="1">
-                    <!-- Add -->
+                    <!-- Product Stock -->
                     <StackPanel Orientation="Horizontal">
                         <mashappsMateriaDesignIcons:PackIconMaterial Foreground="{StaticResource PrimaryColor}"
                                                                      Height="8" 
@@ -48,12 +39,13 @@
                                                                      Kind="Package"
                                                                      VerticalAlignment="Center"
                                                                      Width="8"/>
-                        <TextBlock FontSize="11" 
-                                   Foreground="#71405e"
-                                   Margin="10 0 0 0"
-                                   Text="{Binding ElementName=userCard, Path=UpPrice}"/>
+                        <TextBlock d:Text="[Stock]"
+                                   FontSize="11" 
+                                   Foreground="{StaticResource SecondaryColor}"
+                                   Margin="5 0 0 0"
+                                   Text="{Binding ElementName=userCard, Path=Stock}"/>
                     </StackPanel>
-                    <!-- Date -->
+                    <!-- Product Date -->
                     <StackPanel Orientation="Horizontal">
                         <mashappsMateriaDesignIcons:PackIconMaterial Foreground="{StaticResource PrimaryColor}"
                                                                      Height="8" 
@@ -61,10 +53,11 @@
                                                                      Kind="Calendar"
                                                                      VerticalAlignment="Center"
                                                                      Width="8"/>
-                        <TextBlock FontSize="11"
-                                    Foreground="#71405e" 
-                                    Margin="10 0 0 0"
-                                    Text="{Binding ElementName=userCard, Path=DownPrice}"/>
+                        <TextBlock d:Text="[Date]"
+                                   FontSize="11"
+                                   Foreground="{StaticResource SecondaryColor}"
+                                   Margin="5 0 0 0"
+                                   Text="{Binding ElementName=userCard, Path=Date}"/>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
