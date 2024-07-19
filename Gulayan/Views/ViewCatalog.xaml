@@ -18,11 +18,11 @@
     <UserControl.DataContext>
         <viewModels:ViewModelCatalog/>
     </UserControl.DataContext>
-
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis"/>
     </UserControl.Resources>
 
+    
     <Border Padding="20">
         <Grid>
             <Grid.ColumnDefinitions>
