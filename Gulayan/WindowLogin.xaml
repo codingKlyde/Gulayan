@@ -5,6 +5,7 @@
         xmlns:viewModels="clr-namespace:Gulayan.ViewModels"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         
+        FontFamily="{StaticResource Ubuntu}"
         Height="450" 
         Width="800"
         Style="{StaticResource CustomWindowStyles}"
@@ -36,7 +37,7 @@
                         Grid.Column="1">
                     <Button.Style>
                         <Style TargetType="Button">
-                            <Setter Property="Background" Value="{StaticResource TertiaryColor}"></Setter>
+                            <Setter Property="Background" Value="{StaticResource SecondaryColor}"></Setter>
                             <Style.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
                                     <Setter Property="Background" Value="{StaticResource PrimaryColor}"></Setter>
@@ -62,7 +63,7 @@
                         x:Name="bttnClose">
                     <Button.Style>
                         <Style TargetType="Button">
-                            <Setter Property="Background" Value="{StaticResource TertiaryColor}"></Setter>
+                            <Setter Property="Background" Value="{StaticResource SecondaryColor}"></Setter>
                             <Style.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
                                     <Setter Property="Background" Value="{StaticResource PrimaryColor}"></Setter>
@@ -138,7 +139,8 @@
                                    x:Name="txtblckUsername"/>
                         <TextBox Style="{StaticResource LoginInputStyle}" TextChanged="txtbxUsername_TextChanged" x:Name="txtbxUsername"/>
                     </Grid>
-                </Border>   <!-- Username -->
+                </Border>
+                <!-- Username -->
                 <Border Style="{StaticResource LoginBorderInputStyle}">
                     <Grid Margin="10">
                         <Grid.ColumnDefinitions>
@@ -152,7 +154,8 @@
                                    x:Name="txtblckPassword"/>
                         <PasswordBox PasswordChanged="psswrdbxPassword_PasswordChanged" Style="{StaticResource LoginInputStyle}" x:Name="psswrdbxPassword"/>
                     </Grid>
-                </Border>   <!-- Password -->
+                </Border>
+                <!-- Password -->
                 <Button Click="bttnSubmit_Click" 
                         Content="LOGIN"
                         Style="{StaticResource LoginButtonStyle}"

@@ -25,6 +25,33 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Assets\Vegetables\aubergine.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Vegetables\broccoli.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Vegetables\carrot.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Vegetables\kale.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Vegetables\peas.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Vegetables\pepper.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Vegetables\tomato.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Vegetables\turnip.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FontAwesome.Sharp" Version="6.3.0" />
     <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
     <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="4.11.0" />
@@ -37,15 +64,9 @@
     <Resource Include="Assets\Fonts\Oswald-VariableFont_wght.ttf" />
     <Resource Include="Assets\Fonts\Satisfy-Regular.ttf" />
     <Resource Include="Assets\Fonts\Ubuntu-Regular.ttf" />
-    <Resource Include="Assets\groceries.png" />
-    <Resource Include="Assets\Vegetables\aubergine.png" />
-    <Resource Include="Assets\Vegetables\broccoli.png" />
-    <Resource Include="Assets\Vegetables\carrot.png" />
-    <Resource Include="Assets\Vegetables\kale.png" />
-    <Resource Include="Assets\Vegetables\peas.png" />
-    <Resource Include="Assets\Vegetables\pepper.png" />
-    <Resource Include="Assets\Vegetables\tomato.png" />
-    <Resource Include="Assets\Vegetables\turnip.png" />
+    <Resource Include="Assets\groceries.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

@@ -7,7 +7,6 @@ namespace Gulayan.Models
         [Key]
         public short ProductID { get; set; }
         public string? ProductBatchNumber { get; set; }
-        // MAYBE CHANGE IT INTO ProductClassification
         public string? ProductCategory { get; set; }
         public string? ProductDescription { get; set; }
         public DateTime ProductExpirationDate { get; set; }

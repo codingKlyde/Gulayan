@@ -12,7 +12,7 @@
             mc:Ignorable="d"
             Name="userCard">
 
-
+    
     <UserControl.Resources>
         <Style x:Key="ReminderTitleStyle" TargetType="TextBlock">
             <Setter Property="FontSize" Value="15"/>
@@ -48,11 +48,11 @@
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
             <!-- Add Button -->
-            <Button Margin="0 0 10 0" Style="{StaticResource ButtonRoundedFilledStyle}">
+            <Button Margin="0 0 10 0">
                 <mashappsMateriaDesignIcons:PackIconMaterial Kind="Plus"/>
             </Button>
             <!-- Remove Button -->
-            <Button Style="{StaticResource ButtonRoundedFilledStyle}">
+            <Button>
                 <mashappsMateriaDesignIcons:PackIconMaterial Kind="Minus"/>
             </Button>
         </StackPanel>

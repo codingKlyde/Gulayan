@@ -5,6 +5,7 @@
         xmlns:viewModels="clr-namespace:Gulayan.ViewModels"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         
+        FontFamily="{StaticResource Ubuntu}"
         Height="750" 
         Width="1100"
         Style="{StaticResource CustomWindowStyles}"
@@ -16,7 +17,6 @@
     </Window.DataContext>
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="boolToVisConv"/>
-
         <DataTemplate DataType="{x:Type viewModels:ViewModelCatalog}">
             <views:ViewCatalog/>
         </DataTemplate>
@@ -101,10 +101,7 @@
                         </Button>
                     </StackPanel>
                     <!-- Window Header -->
-                    <StackPanel Grid.Row="1" 
-                                HorizontalAlignment="Center"
-                                Orientation="Horizontal"
-                                VerticalAlignment="Center">
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                         <mashappsMateriaDesignIcons:PackIconMaterial Foreground="{StaticResource PrimaryColor}"
                                                                      Height="20" 
                                                                      Kind="{Binding WHIcon}" 

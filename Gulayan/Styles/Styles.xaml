@@ -3,48 +3,47 @@
                     xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-
-    
-    
-    
-    
-    
-    
     
     <!-- COLORS -->
+    <!--#region PRIMARY COLOR -->
     <!-- Large and Small Text & Graphics -->
     <SolidColorBrush x:Key="PrimaryColor">#0f661c</SolidColorBrush>
     <!-- Large and Small Text & Graphics -->
     <SolidColorBrush x:Key="PrimaryColorLight">#2e7a3a</SolidColorBrush>
     <!-- Large & Graphics -->
     <SolidColorBrush x:Key="PrimaryColorLighter">#159329</SolidColorBrush>
-
+    <!--#endregion-->
+    <!--#region SECONDARY COLOR -->
     <!-- Large and Small Text & Graphics -->
     <SolidColorBrush x:Key="SecondaryColor">#660f59</SolidColorBrush>
     <!-- Large and Small Text & Graphics -->
     <SolidColorBrush x:Key="SecondaryColorLight">#792e6e</SolidColorBrush>
     <!-- Large and Small Text & Graphics -->
     <SolidColorBrush x:Key="SecondaryColorLighter">#9e3c8f</SolidColorBrush>
+    <!--#endregion-->
 
-    <Color x:Key="Color1">#0f661c</Color>
-    <Color x:Key="Color1Light">#2e7a3a</Color>
-    <Color x:Key="Color2">#660f59</Color>
+    <Color x:Key="Color1">#6ab04c</Color>
+    <Color x:Key="Color1Light">#81d25b</Color>
+    <Color x:Key="Color2">#4a372a</Color>
+    <Color x:Key="Color3">#ff7f50</Color>
 
-    
-    
-    
-    
+    <!-- // Make sure these colors are unused before removing them -->
+    <SolidColorBrush x:Key="TertiaryColor">#ff7f50</SolidColorBrush>
+    <SolidColorBrush x:Key="TertiaryColorLight">#FF9960</SolidColorBrush>
+    <SolidColorBrush x:Key="AccentColor">#87ceeb</SolidColorBrush>
+
+
     <!-- UNIVERSAL -->
-    <!-- Window -->
+    <!--#region WINDOW -->
     <Style TargetType="Window" x:Key="CustomWindowStyles">
         <Setter Property="AllowsTransparency" Value="True"/>
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="FontFamily" Value="{StaticResource Ubuntu}"/>
         <Setter Property="ResizeMode" Value="NoResize"/>
         <Setter Property="WindowStyle" Value="None"/>
     </Style>
-
-    <!--Component Border style -->
+    <!--#endregion-->
+    <!--#region CONTAINER -->
+    <!-- Border style -->
     <DropShadowEffect x:Key="CustomDropShadowEffect" BlurRadius="12" Opacity="0.3" ShadowDepth="0"/>
     <Style TargetType="Border" x:Key="ContainerStyle">
         <Setter Property="Background" Value="White"/>
@@ -52,10 +51,11 @@
         <Setter Property="Effect" Value="{StaticResource CustomDropShadowEffect}"/>
         <Setter Property="Padding" Value="20"/>
     </Style>
-    <!-- Container Title -->
+    <!-- Title -->
     <Style TargetType="TextBlock" x:Key="ContainerTitleStyle">
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="Foreground" Value="{StaticResource PrimaryColor}"/>
     </Style>
+    <!--#endregion-->
 </ResourceDictionary>

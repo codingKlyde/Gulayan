@@ -37,20 +37,12 @@
 
             <TextBlock Style="{StaticResource LabelStyle}" Text="Category"/>
             <ComboBox Style="{StaticResource CBInputStyle}" x:Name="cmbbxProductCategory">
-                <ComboBoxItem Content="Bulb"/>
-                <ComboBoxItem Content="Corn"/>
-                <ComboBoxItem Content="Flower"/>
-                <ComboBoxItem Content="Fruit"/>
-                <ComboBoxItem Content="Leaf"/>
-                <ComboBoxItem Content="Miscellaneous"/>
-                <ComboBoxItem Content="Podded"/>
                 <ComboBoxItem Content="Root"/>
-                <ComboBoxItem Content="Rhizome"/>
-                <ComboBoxItem Content="Seed"/>
-                <ComboBoxItem Content="Shoots"/>
-                <ComboBoxItem Content="Stalk"/>
+                <ComboBoxItem Content="Leaf"/>
+                <ComboBoxItem Content="Fruit"/>
+                <ComboBoxItem Content="Flower"/>
                 <ComboBoxItem Content="Stem"/>
-                <ComboBoxItem Content="Tuber"/>
+                <ComboBoxItem Content="Seed"/>
             </ComboBox>
             <TextBlock Foreground="Red" Visibility="Collapsed" x:Name="txtblckCategoryError"/>
 

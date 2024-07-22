@@ -15,6 +15,7 @@
              mc:Ignorable="d">
 
     
+    <!-- TEST COMMIT -->
     <UserControl.DataContext>
         <viewModels:ViewModelCatalog/>
     </UserControl.DataContext>
@@ -22,14 +23,13 @@
         <BooleanToVisibilityConverter x:Key="BoolToVis"/>
     </UserControl.Resources>
 
-    
+
     <Border Padding="20">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
-            <!-- CONTAINER HUGE -->
             <Border Style="{StaticResource ContainerStyle}">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -37,59 +37,60 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
-                    <Grid  Background="Red">
+                    <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-                                <!-- Add Button -->
-                                <Button Click="OpenAddProductModal_Click" Style="{StaticResource ButtonRoundedFilledStyle}">
-                                   <TextBlock Foreground="White" Text="ADD"/>
-                                </Button>
-                                <!-- Refresh Button -->
-                                <Button Command="{Binding RefreshCommand}" Style="{StaticResource ButtonRoundedFilledStyle}" x:Name="bttnRefresh">
-                                    <TextBlock Foreground="White" Text="REFRESH"/>
-                                </Button>
-                            </StackPanel>
-                            <StackPanel HorizontalAlignment="Right" 
-                                        Grid.Column="1"
-                                        Orientation="Horizontal"
-                                        VerticalAlignment="Center">
-                                <!-- Dropdown Menu -->
-                                <Menu Margin="0 0 10 0" VerticalAlignment="Center">
-                                    <MenuItem Style="{StaticResource DropdownMenu}">
-                                        <MenuItem.Icon>
-                                            <mashappsMateriaDesignIcons:PackIconMaterial Kind="DotsHorizontal"/>
-                                        </MenuItem.Icon>
-                                        <!-- Print -->
-                                        <MenuItem Header="Print"
+                        <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                            <!-- Add Button -->
+                            <Button Click="OpenAddProductModal_Click" Style="{StaticResource ButtonRoundedFilledStyle}">
+                                <TextBlock Foreground="White" Text="ADD"/>
+                            </Button>
+                            <!-- Refresh Button -->
+                            <Button Command="{Binding RefreshCommand}" Style="{StaticResource ButtonRoundedFilledStyle}" x:Name="bttnRefresh">
+                                <TextBlock Foreground="White" Text="REFRESH"/>
+                            </Button>
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Right" 
+                                    Grid.Column="1"
+                                    Orientation="Horizontal"
+                                    VerticalAlignment="Center">
+                            <!--#region Dropdown Menu -->
+                            <Menu Margin="0 0 10 0" VerticalAlignment="Center">
+                                <MenuItem Style="{StaticResource DropdownMenu}">
+                                    <MenuItem.Icon>
+                                        <mashappsMateriaDesignIcons:PackIconMaterial Kind="DotsHorizontal"/>
+                                    </MenuItem.Icon>
+                                    <!-- Print -->
+                                    <MenuItem Header="Print"
                                               Height="35"
                                               Width="175"
                                               Style="{StaticResource Services_Sub_MenuItem}">
-                                        </MenuItem>
-                                        <!-- Import -->
-                                        <MenuItem Header="Import"
+                                    </MenuItem>
+                                    <!-- Import -->
+                                    <MenuItem Header="Import"
                                               Height="35"
                                               Width="175"
                                               Style="{StaticResource Mobile_App_MenuItem_With_Dropdown}">
-                                            <MenuItem Click="bttnImport_Click"
+                                        <MenuItem Click="bttnImport_Click"
                                                   Header="Text File"
                                                   Height="35"
                                                   Width="160"
                                                   Style="{StaticResource Mobile_App_Sub_MenuItem}"
                                                   x:Name="bttnImport">
-                                            </MenuItem>
-                                            <MenuItem Header="CSV"
+                                        </MenuItem>
+                                        <MenuItem Header="CSV"
                                                   Height="35"
                                                   Width="160"
                                                   Style="{StaticResource Mobile_App_Sub_MenuItem}">
-                                            </MenuItem>
                                         </MenuItem>
                                     </MenuItem>
-                                </Menu>
-                                <!-- Search Bar -->
-                            <Grid HorizontalAlignment="Right" Grid.Column="1" Width="200">
+                                </MenuItem>
+                            </Menu>
+                            <!--#endregion-->
+                            <!--#region Search Bar -->
+                            <Grid HorizontalAlignment="Right" Grid.Column="1" Width="150">
                                 <TextBlock Foreground="#b0b9c6"
                                            IsHitTestVisible="False"
                                            Margin="15 0"
@@ -99,12 +100,13 @@
                                            Visibility="{Binding ElementName=txtblckSearchBar, Converter={StaticResource BoolToVis}, Path=Text.IsEmpty}"/>
                                 <TextBox Style="{StaticResource SearchBarStyle}" TextChanged="txtblckSearchBar_TextChanged" x:Name="txtblckSearchBar" />
                             </Grid>
+                            <!--#endregion-->
                         </StackPanel>
                     </Grid>
-                    <!-- DATAGRID -->
-                    <DataGrid d:ItemsSource="{d:SampleData ItemCount=10}" 
-                              CellStyle="{DynamicResource DataGridCellStyle1}" 
+                    <!--#region DATAGRID -->
+                    <DataGrid CellStyle="{DynamicResource DataGridCellStyle1}" 
                               ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
+                              d:ItemsSource="{d:SampleData ItemCount=10}" 
                               Grid.Row="1"
                               ItemsSource="{Binding DatabaseProducts}"
                               RowStyle="{DynamicResource DataGridRowStyle1}"
@@ -112,7 +114,7 @@
                               Style="{DynamicResource DataGridStyle1}"
                               x:Name="dtgrdVegetable">
                         <DataGrid.Columns>
-                            <!--#region Checkbox -->
+                            <!--#region CHECKBOX -->
                             <!-- <DataGridCheckBoxColumn CanUserResize="False" Width="auto"> -->
                             <!--  <DataGridCheckBoxColumn.HeaderTemplate> -->
                             <!-- <DataTemplate> -->
@@ -122,49 +124,35 @@
                             <!-- </DataGridCheckBoxColumn> -->
                             <!-- Batch Number -->
                             <!--#endregion-->
-                            <!-- Batch Number -->
                             <DataGridTextColumn Binding="{Binding ProductBatchNumber}"
                                                 Header="Batch Number" 
                                                 IsReadOnly="True" 
                                                 Width="auto"/>
-                            <!-- Name -->
                             <DataGridTextColumn Binding="{Binding ProductName}"
                                                 Header="Name" 
                                                 IsReadOnly="True" 
                                                 Width="auto"/>
-                            <!-- Recieved Date -->
                             <DataGridTextColumn Binding="{Binding ProductRecievedDate, StringFormat=\{0:MM/dd/yyyy\}}"
                                                 Header="Recieved Date" 
                                                 IsReadOnly="True" 
                                                 Width="auto"/>
-                            <!-- Expiration Date -->
                             <DataGridTextColumn Binding="{Binding ProductExpirationDate, StringFormat=\{0:MM/dd/yyyy\}}"
                                                 Header="Expiration Date" 
                                                 IsReadOnly="True" 
                                                 Width="auto"/>
-                            <!-- Stock -->
                             <DataGridTextColumn Binding="{Binding ProductStock}"
                                                 Header="Stock"
                                                 IsReadOnly="True"
                                                 Width="auto"/>
-                            <!-- Operations -->
                             <DataGridTemplateColumn IsReadOnly="True" Width="auto">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <Button Click="OpenUpdateProductModal_Click" 
-                                                    CommandParameter="{Binding}"
-                                                    Style="{StaticResource OperationEditButtonStyle}">
+                                            <Button Click="OpenUpdateProductModal_Click" CommandParameter="{Binding}" Style="{StaticResource OperationEditButtonStyle}">
                                                 <mashappsMateriaDesignIcons:PackIconMaterial Kind="Pen" Style="{StaticResource OperationButtonIconStyle}"/>
                                             </Button>
-                                            <Button Command="{Binding DataContext.DeleteProductCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
-                                                    CommandParameter="{Binding}"
-                                                    Margin="5 0 0 0" 
-                                                    Style="{StaticResource OperationRemoveButtonStyle}">
+                                            <Button Click="bttnDelete_Click" CommandParameter="{Binding}" Margin="5 0 0 0" Style="{StaticResource OperationRemoveButtonStyle}">
                                                 <mashappsMateriaDesignIcons:PackIconMaterial Kind="Delete" Style="{StaticResource OperationButtonIconStyle}"/>
-                                            </Button>
-                                            <Button Margin="5 0 0 0"  Style="{StaticResource OperationEditButtonStyle}">
-                                                <mashappsMateriaDesignIcons:PackIconMaterial Kind="Information" Style="{StaticResource OperationButtonIconStyle}"/>
                                             </Button>
                                         </StackPanel>
                                     </DataTemplate>
@@ -172,9 +160,10 @@
                             </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
+                    <!--#endregion-->
                 </Grid>
             </Border>
-            
+
             <!--#region [HIDDEN] Add Product Modal -->
             <ContentControl Grid.Column="1" 
                             Margin="20 0 0 0"
@@ -183,7 +172,6 @@
                 <catalogcontrols:AddProductModal x:Name="AddProductControl" ProductAdded="AddProductControl_ProductAdded"/>
             </ContentControl>
             <!--#endregion-->
-
             <!--#region [HIDDEN] Update Product Modal -->
             <ContentControl Grid.Column="1" 
                             Margin="20 0 0 0"

@@ -12,13 +12,15 @@ namespace Gulayan.Views
     public partial class ViewCatalog : UserControl
     {
         public ObservableCollection<Product> DatabaseProducts { get; set; }
-        private UpdateProductModal updateProductModal; 
+        private UpdateProductModal updateProductModal; // Declare an instance variable
 
         public ViewCatalog()
         {
             InitializeComponent();
+            ReadProduct();
         }
 
+        // IMPORT
         private void bttnImport_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -28,7 +30,7 @@ namespace Gulayan.Views
             if (openFileDialog.ShowDialog() == true)
             {
                 string filePath = openFileDialog.FileName;
-        
+
                 try
                 {
                     // Read from the text file
@@ -51,10 +53,10 @@ namespace Gulayan.Views
                             ProductSupplier = data[6],
                             ProductStock = int.Parse(data[7]),
                         };
-                        AddProduct(newProduct); 
+                        AddProduct(newProduct);
                     }
                     MessageBox.Show("Import successful!");
-                    //ReadProduct();
+                    ReadProduct();
                 }
                 catch (Exception ex)
                 {
@@ -67,21 +69,56 @@ namespace Gulayan.Views
         private void txtblckSearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
             string searchText = txtblckSearchBar.Text.ToLower();
-
             var filteredProducts = DatabaseProducts.Where(find =>
                 find.ProductBatchNumber.ToLower().Contains(searchText) ||
                 find.ProductCategory.ToLower().Contains(searchText) ||
                 find.ProductName.ToLower().Contains(searchText) ||
                 find.ProductStock.ToString().ToLower().Contains(searchText)
-                // DATE FILTER DOESN'T WORK
-                // || find.ProductRecievedDate.ToString("MM/dd/yyyy").ToLower().Contains(searchText) ||
-                // find.ProductExpirationDate.ToString("MM/dd/yyyy").ToLower().Contains(searchText)
+            // DATE FILTER DOESN'T WORK
+            // || find.ProductRecievedDate.ToString("MM/dd/yyyy").ToLower().Contains(searchText) ||
+            // find.ProductExpirationDate.ToString("MM/dd/yyyy").ToLower().Contains(searchText)
             ).ToList();
-
             dtgrdVegetable.ItemsSource = filteredProducts;
         }
 
-     
+        // Refresh Product
+        public void ReadProduct()
+        {
+            using (ProductDataContext context = new ProductDataContext())
+            {
+                DatabaseProducts = new ObservableCollection<Product>(context.Products.ToList());
+                dtgrdVegetable.ItemsSource = DatabaseProducts;
+            }
+        }
+        private void bttnRefresh_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            ReadProduct();
+        }
+
+        // DELETE
+        public void DeleteProduct(Product product)
+        {
+            using (ProductDataContext context = new ProductDataContext())
+            {
+                if (product != null)
+                {
+                    context.Products.Attach(product);
+                    context.Products.Remove(product);
+                    context.SaveChanges();
+                    ReadProduct();
+                    MessageBox.Show("Product deleted successfully!");
+                }
+            }
+        }
+        private void bttnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            Product selectedProduct = button?.CommandParameter as Product;
+            if (selectedProduct != null)
+            {
+                DeleteProduct(selectedProduct);
+            }
+        }
 
         // ADD
         public void AddProduct(Product newProduct)
@@ -91,7 +128,7 @@ namespace Gulayan.Views
                 context.Products.Add(newProduct);
                 context.SaveChanges();
             }
-            //ReadProduct();
+            ReadProduct();
         }
         private void OpenAddProductModal_Click(object sender, RoutedEventArgs e)
         {
@@ -100,7 +137,7 @@ namespace Gulayan.Views
             else
                 ModalContent.Visibility = Visibility.Collapsed;
         }
-        // Executes during runtime
+        // This method executes during runtime
         private void AddProductControl_ProductAdded(object sender, Product newProduct)
         {
             AddProduct(newProduct);
@@ -110,10 +147,10 @@ namespace Gulayan.Views
         // UPDATE
         private void OpenUpdateProductModal_Click(object sender, RoutedEventArgs e)
         {
-            Button button = sender as Button;
+            Button? button = sender as Button;
             if (button != null)
             {
-                Product selectedProduct = button.CommandParameter as Product;
+                Product? selectedProduct = button.CommandParameter as Product;
                 if (selectedProduct != null)
                     UpdateProductControl.SetProductDetails(selectedProduct);
             }
@@ -125,8 +162,8 @@ namespace Gulayan.Views
         }
         private void UpdateProductModal_ProductUpdated(object sender, Product newProduct)
         {
-            //ReadProduct();
+            ReadProduct();
             ModalContent.Visibility = Visibility.Collapsed;
         }
     }
-}   
+}

@@ -4,7 +4,7 @@
     xmlns:local="clr-namespace:Gulayan"
     xmlns:customcontrols="clr-namespace:Gulayan.Controls">
 
-
+    
 
     <Style TargetType="{x:Type customcontrols:CustomTitleBar}">
         <Setter Property="Template">

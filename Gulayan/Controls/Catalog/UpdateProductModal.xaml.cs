@@ -21,8 +21,10 @@ namespace Gulayan.Controls.Catalog
         public void SetProductDetails(Product product)
         {
             selectedProduct = product;
+
+            // Populate fields with product details
             txtbxProductBatchNumber.Text = selectedProduct.ProductBatchNumber;
-          
+            // Set selected category in combobox
             SelectComboBoxItem(cmbbxProductCategory, selectedProduct.ProductCategory);
             txtbxProductName.Text = selectedProduct.ProductName;
             txtbxProductDescription.Text = selectedProduct.ProductDescription;
@@ -103,6 +105,7 @@ namespace Gulayan.Controls.Catalog
 
             if (!isValid) return;
 
+            // Update selectedProduct with new values
             selectedProduct.ProductBatchNumber = txtbxProductBatchNumber.Text;
             selectedProduct.ProductCategory = (cmbbxProductCategory.SelectedItem as ComboBoxItem)?.Content.ToString();
             selectedProduct.ProductName = txtbxProductName.Text;
