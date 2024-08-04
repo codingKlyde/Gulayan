@@ -7,8 +7,8 @@
             xmlns:viewModels="clr-namespace:Gulayan.ViewModels"
             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
    
-            FontFamily="{StaticResource Ubuntu}"
             d:Background="White"
+            d:FontFamily="{StaticResource Ubuntu}"
             mc:Ignorable="d"
             Name="userCard">
 
@@ -31,18 +31,18 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <TextBlock Style="{StaticResource ContainerTitleStyle}" Text="Reminders"/>
+        <TextBlock Style="{StaticResource ContainerTitleStyle}" Text="Tracking "/>
         <StackPanel Grid.Row="1">
             <StackPanel Margin="0 0 0 10">
-                <TextBlock Text="Reminder 1" Style="{StaticResource ReminderTitleStyle}" />
+                <TextBlock Text="Product 1" Style="{StaticResource ReminderTitleStyle}" />
                 <TextBlock Text="This is the first reminder." Style="{StaticResource ReminderDescriptionStyle}" />
             </StackPanel>
             <StackPanel Margin="0 0 0 10">
-                <TextBlock Text="Reminder 2" Style="{StaticResource ReminderTitleStyle}" />
+                <TextBlock Text="Product 2" Style="{StaticResource ReminderTitleStyle}" />
                 <TextBlock Text="This is the second reminder." Style="{StaticResource ReminderDescriptionStyle}" />
             </StackPanel>
             <StackPanel>
-                <TextBlock Text="Reminder 3" Style="{StaticResource ReminderTitleStyle}" />
+                <TextBlock Text="Product 3" Style="{StaticResource ReminderTitleStyle}" />
                 <TextBlock Text="This is the third reminder." Style="{StaticResource ReminderDescriptionStyle}" />
             </StackPanel>
         </StackPanel>
@@ -50,10 +50,6 @@
             <!-- Add Button -->
             <Button Margin="0 0 10 0">
                 <mashappsMateriaDesignIcons:PackIconMaterial Kind="Plus"/>
-            </Button>
-            <!-- Remove Button -->
-            <Button>
-                <mashappsMateriaDesignIcons:PackIconMaterial Kind="Minus"/>
             </Button>
         </StackPanel>
     </Grid>

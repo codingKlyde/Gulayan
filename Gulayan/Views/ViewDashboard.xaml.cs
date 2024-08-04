@@ -8,16 +8,6 @@ namespace Gulayan.Views
         public ViewDashboard()
         {
             InitializeComponent();
-            TotalProduct();
-        }
-
-        public void TotalProduct()
-        {
-            using (ProductDataContext context = new ProductDataContext())
-            {
-                int count = context.Products.Count();
-                txtblckTotalProduct.Text = count.ToString();
-            }
         }
     }
 }

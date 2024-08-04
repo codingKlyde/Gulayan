@@ -6,18 +6,20 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 
 namespace Gulayan.Views
 {
     public partial class ViewCatalog : UserControl
     {
         public ObservableCollection<Product> DatabaseProducts { get; set; }
-        private UpdateProductModal updateProductModal; // Declare an instance variable
+        private UpdateProductModal updateProductModal; 
 
         public ViewCatalog()
         {
             InitializeComponent();
             ReadProduct();
+            TotalProduct();
         }
 
         // IMPORT
@@ -65,6 +67,64 @@ namespace Gulayan.Views
             }
         }
 
+        // PRINT
+        private void bttnPrint_Click(object sender, RoutedEventArgs e)
+        {
+            PrintDialog printDialog = new PrintDialog();
+
+            if (printDialog.ShowDialog() == true)
+            {
+                // Create a FlowDocument dynamically to print the DataGrid content
+                FlowDocument doc = new FlowDocument();
+                doc.PagePadding = new Thickness(50);
+                doc.PageHeight = printDialog.PrintableAreaHeight;
+                doc.PageWidth = printDialog.PrintableAreaWidth;
+
+                Table table = new Table();
+                doc.Blocks.Add(table);
+
+                // Add columns to the table
+                foreach (var column in dtgrdVegetable.Columns)
+                {
+                    table.Columns.Add(new TableColumn());
+                }
+
+                // Add the header row
+                TableRowGroup headerGroup = new TableRowGroup();
+                table.RowGroups.Add(headerGroup);
+                TableRow headerRow = new TableRow();
+                headerGroup.Rows.Add(headerRow);
+
+                foreach (var column in dtgrdVegetable.Columns)
+                {
+                    headerRow.Cells.Add(new TableCell(new Paragraph(new Run(column.Header.ToString()))));
+                }
+
+                // Add the data rows
+                TableRowGroup dataGroup = new TableRowGroup();
+                table.RowGroups.Add(dataGroup);
+
+                foreach (var item in dtgrdVegetable.Items)
+                {
+                    if (item is Product product)
+                    {
+                        TableRow dataRow = new TableRow();
+                        dataGroup.Rows.Add(dataRow);
+
+                        dataRow.Cells.Add(new TableCell(new Paragraph(new Run(product.ProductBatchNumber))));
+                        dataRow.Cells.Add(new TableCell(new Paragraph(new Run(product.ProductName))));
+                        dataRow.Cells.Add(new TableCell(new Paragraph(new Run(product.ProductRecievedDate.ToString("MM/dd/yyyy")))));
+                        dataRow.Cells.Add(new TableCell(new Paragraph(new Run(product.ProductExpirationDate.ToString("MM/dd/yyyy")))));
+                        dataRow.Cells.Add(new TableCell(new Paragraph(new Run(product.ProductStock.ToString()))));
+                    }
+                }
+
+                IDocumentPaginatorSource idocument = doc;
+
+                printDialog.PrintDocument(idocument.DocumentPaginator, "Printing DataGrid");
+            }
+        }
+
         // SEARCH BAR
         private void txtblckSearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -81,7 +141,7 @@ namespace Gulayan.Views
             dtgrdVegetable.ItemsSource = filteredProducts;
         }
 
-        // Refresh Product
+        // READ/REFRESH
         public void ReadProduct()
         {
             using (ProductDataContext context = new ProductDataContext())
@@ -164,6 +224,15 @@ namespace Gulayan.Views
         {
             ReadProduct();
             ModalContent.Visibility = Visibility.Collapsed;
+        }
+
+        public void TotalProduct()
+        {
+            using (ProductDataContext context = new ProductDataContext())
+            {
+                int count = context.Products.Count();
+                txtblckTotalProduct.Text = count.ToString();
+            }
         }
     }
 }

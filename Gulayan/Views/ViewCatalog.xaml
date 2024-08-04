@@ -9,13 +9,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     
              d:Background="White"
-             d:DesignHeight="550"
-             d:DesignWidth="1150"
-             FontFamily="{StaticResource Ubuntu}"
+             d:Width="1200"
              mc:Ignorable="d">
 
     
-    <!-- TEST COMMIT -->
     <UserControl.DataContext>
         <viewModels:ViewModelCatalog/>
     </UserControl.DataContext>
@@ -42,53 +39,48 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-                            <!-- Add Button -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Separator Margin="5 0"/>
+                            <!--#region Add Button -->
                             <Button Click="OpenAddProductModal_Click" Style="{StaticResource ButtonRoundedFilledStyle}">
                                 <TextBlock Foreground="White" Text="ADD"/>
                             </Button>
-                            <!-- Refresh Button -->
+                            <!--#endregion-->
+                            <Separator Margin="5 0"/>
+                            <!--#region Refresh Button -->
                             <Button Command="{Binding RefreshCommand}" Style="{StaticResource ButtonRoundedFilledStyle}" x:Name="bttnRefresh">
                                 <TextBlock Foreground="White" Text="REFRESH"/>
                             </Button>
-                        </StackPanel>
-                        <StackPanel HorizontalAlignment="Right" 
-                                    Grid.Column="1"
-                                    Orientation="Horizontal"
-                                    VerticalAlignment="Center">
-                            <!--#region Dropdown Menu -->
-                            <Menu Margin="0 0 10 0" VerticalAlignment="Center">
-                                <MenuItem Style="{StaticResource DropdownMenu}">
-                                    <MenuItem.Icon>
-                                        <mashappsMateriaDesignIcons:PackIconMaterial Kind="DotsHorizontal"/>
-                                    </MenuItem.Icon>
-                                    <!-- Print -->
-                                    <MenuItem Header="Print"
-                                              Height="35"
-                                              Width="175"
-                                              Style="{StaticResource Services_Sub_MenuItem}">
-                                    </MenuItem>
-                                    <!-- Import -->
-                                    <MenuItem Header="Import"
-                                              Height="35"
-                                              Width="175"
-                                              Style="{StaticResource Mobile_App_MenuItem_With_Dropdown}">
-                                        <MenuItem Click="bttnImport_Click"
-                                                  Header="Text File"
-                                                  Height="35"
-                                                  Width="160"
-                                                  Style="{StaticResource Mobile_App_Sub_MenuItem}"
-                                                  x:Name="bttnImport">
-                                        </MenuItem>
-                                        <MenuItem Header="CSV"
-                                                  Height="35"
-                                                  Width="160"
-                                                  Style="{StaticResource Mobile_App_Sub_MenuItem}">
-                                        </MenuItem>
-                                    </MenuItem>
-                                </MenuItem>
-                            </Menu>
                             <!--#endregion-->
+                            <Separator Margin="10 0"/>
+                            <!--#region Total Products -->
+                            <StackPanel Orientation="Horizontal">
+                                <mashappsMateriaDesignIcons:PackIconMaterial Foreground="{StaticResource PrimaryColor}" 
+                                                                             Height="23"
+                                                                             Kind="Basket"
+                                                                             Margin="0 0 10 0"
+                                                                             Width="23"/>
+                                <TextBlock d:Text="?" 
+                                           FontSize="20"
+                                           FontWeight="Bold"
+                                           VerticalAlignment="Center"
+                                           x:Name="txtblckTotalProduct"/>
+                            </StackPanel>
+                            <!--#endregion-->
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Right" Grid.Column="1" Orientation="Horizontal">
+                            <!--#region Print Button -->
+                            <Button Click="bttnPrint_Click" Style="{StaticResource ButtonRoundedFilledStyle}">
+                                <mashappsMateriaDesignIcons:PackIconMaterial Foreground="White" Kind="Printer"/>
+                            </Button>
+                            <!--#endregion-->
+                            <Separator Margin="5 0"/>
+                            <!--#region Import Button -->
+                            <Button Click="bttnImport_Click" Style="{StaticResource ButtonRoundedFilledStyle}">
+                                <mashappsMateriaDesignIcons:PackIconMaterial Foreground="White" Kind="FileImport"/>
+                            </Button>
+                            <!--#endregion-->
+                            <Separator Margin="5 0"/>
                             <!--#region Search Bar -->
                             <Grid HorizontalAlignment="Right" Grid.Column="1" Width="150">
                                 <TextBlock Foreground="#b0b9c6"
@@ -101,12 +93,13 @@
                                 <TextBox Style="{StaticResource SearchBarStyle}" TextChanged="txtblckSearchBar_TextChanged" x:Name="txtblckSearchBar" />
                             </Grid>
                             <!--#endregion-->
+                            <Separator Margin="5 0"/>
                         </StackPanel>
                     </Grid>
                     <!--#region DATAGRID -->
                     <DataGrid CellStyle="{DynamicResource DataGridCellStyle1}" 
                               ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
-                              d:ItemsSource="{d:SampleData ItemCount=10}" 
+                              d:ItemsSource="{d:SampleData ItemCount=5}" 
                               Grid.Row="1"
                               ItemsSource="{Binding DatabaseProducts}"
                               RowStyle="{DynamicResource DataGridRowStyle1}"
@@ -125,25 +118,29 @@
                             <!-- Batch Number -->
                             <!--#endregion-->
                             <DataGridTextColumn Binding="{Binding ProductBatchNumber}"
-                                                Header="Batch Number" 
+                                                Header="Batch" 
                                                 IsReadOnly="True" 
-                                                Width="auto"/>
+                                                Width="*"/>
+                            <DataGridTextColumn Binding="{Binding ProductCategory}"
+                                                Header="Category" 
+                                                IsReadOnly="True" 
+                                                Width="*"/>
                             <DataGridTextColumn Binding="{Binding ProductName}"
                                                 Header="Name" 
                                                 IsReadOnly="True" 
-                                                Width="auto"/>
+                                                Width="*"/>
                             <DataGridTextColumn Binding="{Binding ProductRecievedDate, StringFormat=\{0:MM/dd/yyyy\}}"
                                                 Header="Recieved Date" 
                                                 IsReadOnly="True" 
-                                                Width="auto"/>
+                                                Width="*"/>
                             <DataGridTextColumn Binding="{Binding ProductExpirationDate, StringFormat=\{0:MM/dd/yyyy\}}"
                                                 Header="Expiration Date" 
                                                 IsReadOnly="True" 
-                                                Width="auto"/>
+                                                Width="*"/>
                             <DataGridTextColumn Binding="{Binding ProductStock}"
                                                 Header="Stock"
                                                 IsReadOnly="True"
-                                                Width="auto"/>
+                                                Width="*"/>
                             <DataGridTemplateColumn IsReadOnly="True" Width="auto">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>

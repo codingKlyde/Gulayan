@@ -35,17 +35,16 @@
     <Border Background="GhostWhite"
             BorderBrush="{StaticResource PrimaryColor}"
             BorderThickness="2"  
-            CornerRadius="10">
+            CornerRadius="7">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <!-- COLUMN 1 -->
-            <!-- Side Navigation Bar -->
-            <Border Margin="20 20 0 20" Padding="10 0" VerticalAlignment="Center">
+            <!--#region SIDE NAVIGATION BAR -->
+            <Border Margin="20 0 0 0" VerticalAlignment="Center">
                 <StackPanel>
-                    <!-- Navigation -->
                     <Separator Margin="0 0 0 20" Width="45"/>
                     <RadioButton Command="{Binding ShowDashboardCommand}"
                                  IsChecked="True"
@@ -65,6 +64,7 @@
                     <Separator Margin="0 20 0 0" Width="45"/>
                 </StackPanel>
             </Border>
+            <!--#endregion-->
 
             <!-- COLUMN 2 -->
             <Border CornerRadius="0 50 50 0" Grid.Column="1">
@@ -74,7 +74,7 @@
                         <RowDefinition Height="35" />
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <!-- Window Actions Panel -->
+                    <!--#region WINDOW ACTION PANEL -->
                     <StackPanel Background="Transparent" 
                                 FlowDirection="RightToLeft" 
                                 Margin="0 0 10 0"
@@ -85,7 +85,7 @@
                                 Style="{StaticResource ActionButtonStyle}"
                                 Tag="White" 
                                 x:Name="bttnClose">
-                            <mashappsMateriaDesignIcons:PackIconMaterial Kind="WindowClose" Style="{StaticResource ActionButtonIconStyle}" />
+                            <mashappsMateriaDesignIcons:PackIconMaterial Kind="WindowClose" Style="{StaticResource ActionButtonIconStyle}"/>
                         </Button>
                         <Button Click="bttnMaximize_Click" 
                                 Style="{StaticResource ActionButtonStyle}"
@@ -100,20 +100,23 @@
                             <mashappsMateriaDesignIcons:PackIconMaterial Kind="WindowMinimize" Style="{StaticResource ActionButtonIconStyle}" Width="11" />
                         </Button>
                     </StackPanel>
-                    <!-- Window Header -->
+                    <!--#endregion-->
+                    <!--#region HEADER -->
                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                         <mashappsMateriaDesignIcons:PackIconMaterial Foreground="{StaticResource PrimaryColor}"
                                                                      Height="20" 
                                                                      Kind="{Binding WHIcon}" 
-                                                                     Margin="20 0 15 0"
+                                                                     Margin="20 0 10 0"
                                                                      Width="20"/>
                         <TextBlock Foreground="{StaticResource PrimaryColor}" 
                                    FontSize="17"
                                    FontWeight="Bold"
                                    Text="{Binding WHTitle}"/>
                     </StackPanel>
-                    <!-- Window Content -->
+                    <!--#endregion-->
+                    <!--#region CONTENT -->
                     <ContentControl Content="{Binding WCCurrentView}" FocusVisualStyle="{x:Null}" Grid.Row="2"/>
+                    <!--#endregion-->
                 </Grid>
             </Border>
         </Grid>

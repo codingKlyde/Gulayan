@@ -6,13 +6,16 @@
              xmlns:liveCharts="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              xmlns:mashappsMateriaDesignIcons="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:viewModels="clr-namespace:Gulayan.ViewModels"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     
              d:Background="White"
-             d:DesignHeight="550"
-             d:DesignWidth="800"
-             FontFamily="{StaticResource Ubuntu}"
              mc:Ignorable="d">
+
+    
+    <UserControl.DataContext>
+        <viewModels:ViewModelDashboard/>
+    </UserControl.DataContext>
 
     
     <Border Padding="20">
@@ -25,41 +28,22 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
-                <Grid Margin="0 0 0 20">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <!-- CONTAINER TINY -->
-                    <Border Margin="0 0 20 0" Style="{StaticResource ContainerStyle}">
-                        <StackPanel Orientation="Horizontal">
-                            <mashappsMateriaDesignIcons:PackIconMaterial Foreground="{StaticResource PrimaryColor}" 
-                                                                         Height="20"
-                                                                         Kind="Basket"
-                                                                         Margin="0 0 10 0"
-                                                                         Width="20"/>
-                            <TextBlock d:Text="?" 
-                                       FontSize="20"
-                                       FontWeight="Bold"
-                                       VerticalAlignment="Center"
-                                       x:Name="txtblckTotalProduct"/>
-                        </StackPanel>
-                    </Border>
-                    <!-- CONTAINER LONG -->
-                    <Border Grid.Column="1" Style="{StaticResource ContainerStyle}">
-                        <TextBlock FontSize="20"
+                <!--#region BANNER -->
+                    <Border Grid.Column="1" Margin="0 0 0 20" Style="{StaticResource ContainerStyle}">
+                        <TextBlock FontSize="{StaticResource text-lg}"
                                    HorizontalAlignment="Center" 
-                                   Text="BANNER"
+                                   Text="{Binding Quote}"
                                    VerticalAlignment="Center"/>
                     </Border>
-                </Grid>
-                <!-- CONTAINER HUGE -->
-                <Border Grid.Row="2" Style="{StaticResource ContainerStyle}">
+                    <!--#endregion-->
+                <!--#region CHART -->
+                <Border Grid.Row="1" Style="{StaticResource ContainerStyle}">
                     <Grid>
                         <!-- Legend -->
                         <controls:Legends HorizontalAlignment="Right" Margin="0 8 10 0" VerticalAlignment="Top"/>
-                        <!-- Chart -->
+                        <!--#region CHART -->
                         <liveCharts:CartesianChart LegendLocation="None" Margin="5 40 0 60">
                             <liveCharts:CartesianChart.AxisX>
                                 <liveCharts:Axis Foreground="#90a3b2" ShowLabels="True">
@@ -111,10 +95,12 @@
                                 </liveCharts:LineSeries>
                             </liveCharts:CartesianChart.Series>
                         </liveCharts:CartesianChart>
+                        <!--#endregion-->
                         <!-- Note -->
                         <Grid VerticalAlignment="Bottom">
                             <mashappsMateriaDesignIcons:PackIconMaterial Foreground="#f96654" Kind="Information"/>
-                            <TextBlock Foreground="#b7b7b7"
+                            <TextBlock FontSize="{StaticResource text-base}"
+                                       Foreground="#b7b7b7"
                                        LineHeight="18"
                                        Margin="25 0 0 0"
                                        Text="Net sales, Found on the income statement are used to calculate."
@@ -122,13 +108,46 @@
                         </Grid>
                     </Grid>
                 </Border>
+                <!--#endregion-->
+                <!--#region STATS -->
+                <Grid Grid.Row="2" Margin="0 20 0 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <dashboardcontrols:StatCard StatCardBackground="LightCyan"
+                                                StatCardData="232" 
+                                                StatCardIcon="import"
+                                                StatCardTitle="Imports"/>
+                    <dashboardcontrols:StatCard Grid.Column="2" 
+                                                StatCardBackground="LightGreen"
+                                                StatCardData="102"
+                                                StatCardIcon="Export"
+                                                StatCardTitle="Exports"/>
+                    <dashboardcontrols:StatCard Grid.Column="4" 
+                                                StatCardBackground="LightSteelBlue" 
+                                                StatCardData="652"
+                                                StatCardIcon="AccountGroup"
+                                                StatCardTitle="Customers"/>
+                    <dashboardcontrols:StatCard Grid.Column="6" 
+                                                StatCardBackground="LightYellow" 
+                                                StatCardData="3626"
+                                                StatCardIcon="ChartBellCurveCumulative"
+                                                StatCardTitle="Sales"/>
+                </Grid>
+                <!--#endregion-->
             </Grid>
-            <Grid Grid.Column="1">
+            <Grid Grid.Column="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <!-- CONTAINER SMALL 1 -->
+                <!--#region Recently Added Section -->
                 <Border Margin="0 0 0 20" Style="{StaticResource ContainerStyle}">
                     <StackPanel>
                         <TextBlock Style="{StaticResource ContainerTitleStyle}" Text="Recently Added"/>
@@ -152,10 +171,12 @@
                                                     UpPrice="$2000"/>
                     </StackPanel>
                 </Border>
-                <!-- CONTAINER SMALL 2 -->
+                <!--#endregion-->
+                <!--#region Tracking Products Section -->
                 <Border Grid.Row="1" Style="{StaticResource ContainerStyle}">
                     <dashboardcontrols:Reminder/>
                 </Border>
+                <!--#endregion-->
             </Grid>
         </Grid>
     </Border>
