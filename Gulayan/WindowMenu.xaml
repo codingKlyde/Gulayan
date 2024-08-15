@@ -45,7 +45,7 @@
             <!--#region SIDE NAVIGATION BAR -->
             <Border Margin="20 0 0 0" VerticalAlignment="Center">
                 <StackPanel>
-                    <Separator Margin="0 0 0 20" Width="45"/>
+                    <Separator Margin="0 0 0 20" Width="50"/>
                     <RadioButton Command="{Binding ShowDashboardCommand}"
                                  IsChecked="True"
                                  Style="{StaticResource NavButtonStyle}" 
@@ -61,7 +61,7 @@
                     <RadioButton Command="{Binding ShowSettingsCommand}" Style="{StaticResource NavButtonStyle}" Tag="{StaticResource PrimaryColor}">
                         <mashappsMateriaDesignIcons:PackIconMaterial Kind="CogOutline" Style="{StaticResource NavButtonIconStyle}"/>
                     </RadioButton>
-                    <Separator Margin="0 20 0 0" Width="45"/>
+                    <Separator Margin="0 20 0 0" Width="50"/>
                 </StackPanel>
             </Border>
             <!--#endregion-->

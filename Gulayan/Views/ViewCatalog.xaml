@@ -3,7 +3,7 @@
              xmlns:catalogcontrols="clr-namespace:Gulayan.Controls.Catalog"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Gulayan"
-             xmlns:mashappsMateriaDesignIcons="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:iconMaterial="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:viewModels="clr-namespace:Gulayan.ViewModels"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -55,7 +55,7 @@
                             <Separator Margin="10 0"/>
                             <!--#region Total Products -->
                             <StackPanel Orientation="Horizontal">
-                                <mashappsMateriaDesignIcons:PackIconMaterial Foreground="{StaticResource PrimaryColor}" 
+                                <iconMaterial:PackIconMaterial Foreground="{StaticResource PrimaryColor}" 
                                                                              Height="23"
                                                                              Kind="Basket"
                                                                              Margin="0 0 10 0"
@@ -71,13 +71,13 @@
                         <StackPanel HorizontalAlignment="Right" Grid.Column="1" Orientation="Horizontal">
                             <!--#region Print Button -->
                             <Button Click="bttnPrint_Click" Style="{StaticResource ButtonRoundedFilledStyle}">
-                                <mashappsMateriaDesignIcons:PackIconMaterial Foreground="White" Kind="Printer"/>
+                                <iconMaterial:PackIconMaterial Foreground="White" Kind="Printer"/>
                             </Button>
                             <!--#endregion-->
                             <Separator Margin="5 0"/>
                             <!--#region Import Button -->
                             <Button Click="bttnImport_Click" Style="{StaticResource ButtonRoundedFilledStyle}">
-                                <mashappsMateriaDesignIcons:PackIconMaterial Foreground="White" Kind="FileImport"/>
+                                <iconMaterial:PackIconMaterial Foreground="White" Kind="FileImport"/>
                             </Button>
                             <!--#endregion-->
                             <Separator Margin="5 0"/>
@@ -146,10 +146,10 @@
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
                                             <Button Click="OpenUpdateProductModal_Click" CommandParameter="{Binding}" Style="{StaticResource OperationEditButtonStyle}">
-                                                <mashappsMateriaDesignIcons:PackIconMaterial Kind="Pen" Style="{StaticResource OperationButtonIconStyle}"/>
+                                                <iconMaterial:PackIconMaterial Kind="Pen" Style="{StaticResource OperationButtonIconStyle}"/>
                                             </Button>
                                             <Button Click="bttnDelete_Click" CommandParameter="{Binding}" Margin="5 0 0 0" Style="{StaticResource OperationRemoveButtonStyle}">
-                                                <mashappsMateriaDesignIcons:PackIconMaterial Kind="Delete" Style="{StaticResource OperationButtonIconStyle}"/>
+                                                <iconMaterial:PackIconMaterial Kind="Delete" Style="{StaticResource OperationButtonIconStyle}"/>
                                             </Button>
                                         </StackPanel>
                                     </DataTemplate>

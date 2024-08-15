@@ -1,0 +1,84 @@
+﻿<UserControl x:Class="Gulayan.Controls.Dashboard.NewItemCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:iconMaterial="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:views="clr-namespace:Gulayan.Views"
+             xmlns:viewModels="clr-namespace:Gulayan.ViewModels"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    
+             d:FontFamily="{StaticResource Ubuntu}"
+             mc:Ignorable="d"
+             Name="ni">
+
+    
+    <UserControl.Resources>
+        <Style TargetType="iconMaterial:PackIconMaterial" x:Key="PackIconMaterialStyle">
+            <Setter Property="Foreground" Value="{StaticResource PrimaryBrush}"/>
+            <Setter Property="Height" Value="12"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Width" Value="12"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="TextBlockStyle" >
+            <Setter Property="FontSize" Value="{StaticResource text-sm}"/>
+            <Setter Property="Foreground" Value="{StaticResource PrimaryBrush}"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+    </UserControl.Resources>
+
+    
+    <Border Background="MediumSeaGreen" CornerRadius="7" Padding="10">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!--#region Item Thumbnail -->
+            <Border Background="PaleGreen" CornerRadius="4" Padding="5">
+                <Image d:Source="/Assets/Vegetables/kale.png" 
+                       Height="30"
+                       Source="{Binding ElementName=ni, Path=ItemThumbnail}"
+                       VerticalAlignment="Center"
+                       Width="30"/>
+            </Border>
+            <!--#endregion-->
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <!--#region Item Name -->
+                <TextBlock d:Text="Item Name"
+                           FontSize="{StaticResource text-base}" 
+                           FontWeight="SemiBold" 
+                           Foreground="{StaticResource SecondaryColor}"
+                           Text="{Binding ElementName=ni, Path=ItemName}"
+                           VerticalAlignment="Center"/>
+                <!--#endregion-->
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto   "/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <!--#region Item Stock -->
+                    <StackPanel Orientation="Horizontal">
+                        <iconMaterial:PackIconMaterial Kind="Package" Style="{StaticResource PackIconMaterialStyle}"/>
+                        <Separator Margin="2 0"/>
+                        <TextBlock d:Text="3500" Text="{Binding ElementName=ni, Path=ItemStock}" Style="{StaticResource TextBlockStyle}"/>
+                    </StackPanel>
+                    <!--#endregion-->
+                    <!--#region Item Recieved Date -->
+                    <StackPanel Grid.Column="2" Orientation="Horizontal">
+                        <iconMaterial:PackIconMaterial Kind="Calendar" Style="{StaticResource PackIconMaterialStyle}"/>
+                        <Separator Margin="2 0"/>
+                        <TextBlock d:Text="12/12/24" Text="{Binding ElementName=ni, Path=ItemRecievedDate}" Style="{StaticResource TextBlockStyle}"/>
+                    </StackPanel>
+                    <!--#endregion-->
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

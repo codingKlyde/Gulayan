@@ -12,7 +12,7 @@ namespace Gulayan.ViewModels
         private readonly DispatcherTimer _timer;
 
         private string? _quote;
-        public string Quote
+        public string? Quote
         {
             get { return _quote; }
             set
@@ -29,7 +29,7 @@ namespace Gulayan.ViewModels
              // Initialize and configure the timer
             _timer = new DispatcherTimer
             {
-                Interval = TimeSpan.FromMinutes(1) // Interval to 1 minute
+                Interval = TimeSpan.FromMinutes(15) // Interval to 15 minutes
             };
             _timer.Tick += async (sender, args) => await FetchQuoteAsync();
             _timer.Start();
@@ -45,13 +45,10 @@ namespace Gulayan.ViewModels
                 using (HttpClient client = new HttpClient())
                 {
                     string url = "https://zenquotes.io/api/random";
-
                     // Asynchronously get the response from the API
                     var response = await client.GetStringAsync(url);
-
-                    // Deserialize the JSON response into a list of ZenQuoteDto objects
+                    // Deserialize the JSON response into a list of ZenQuote(Model) objects
                     var quotes = JsonConvert.DeserializeObject<List<ZenQuote>>(response);
-
                     // Update the Quote property with the fetched quote
                     if (quotes != null && quotes.Count > 0)
                         Quote = quotes[0].q + " - " + quotes[0].a;

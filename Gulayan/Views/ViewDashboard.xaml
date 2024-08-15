@@ -2,9 +2,9 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:controls="clr-namespace:Gulayan.Controls"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:dashboardcontrols="clr-namespace:Gulayan.Controls.Dashboard"
+             xmlns:dcontrols="clr-namespace:Gulayan.Controls.Dashboard"
              xmlns:liveCharts="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-             xmlns:mashappsMateriaDesignIcons="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:iconMaterial="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:viewModels="clr-namespace:Gulayan.ViewModels"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -12,12 +12,12 @@
              d:Background="White"
              mc:Ignorable="d">
 
-    
+
     <UserControl.DataContext>
         <viewModels:ViewModelDashboard/>
     </UserControl.DataContext>
 
-    
+ 
     <Border Padding="20">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -30,14 +30,14 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
-                <!--#region BANNER -->
-                    <Border Grid.Column="1" Margin="0 0 0 20" Style="{StaticResource ContainerStyle}">
-                        <TextBlock FontSize="{StaticResource text-lg}"
-                                   HorizontalAlignment="Center" 
-                                   Text="{Binding Quote}"
-                                   VerticalAlignment="Center"/>
-                    </Border>
-                    <!--#endregion-->
+                <!--#region BANNER SECTION -->
+                <Border Grid.Column="1" Margin="0 0 0 20">
+                    <TextBlock FontSize="{StaticResource text-base}"
+                               HorizontalAlignment="Center" 
+                               Text="{Binding Quote}"
+                               VerticalAlignment="Center"/>
+                </Border>
+                <!--#endregion-->
                 <!--#region CHART -->
                 <Border Grid.Row="1" Style="{StaticResource ContainerStyle}">
                     <Grid>
@@ -98,7 +98,7 @@
                         <!--#endregion-->
                         <!-- Note -->
                         <Grid VerticalAlignment="Bottom">
-                            <mashappsMateriaDesignIcons:PackIconMaterial Foreground="#f96654" Kind="Information"/>
+                            <iconMaterial:PackIconMaterial Foreground="#f96654" Kind="Information"/>
                             <TextBlock FontSize="{StaticResource text-base}"
                                        Foreground="#b7b7b7"
                                        LineHeight="18"
@@ -109,72 +109,93 @@
                     </Grid>
                 </Border>
                 <!--#endregion-->
-                <!--#region STATS -->
+                <!--#region Statistic Section -->
                 <Grid Grid.Row="2" Margin="0 20 0 0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="20"/>
-                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="20"/>
-                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="20"/>
-                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <dashboardcontrols:StatCard StatCardBackground="LightCyan"
-                                                StatCardData="232" 
-                                                StatCardIcon="import"
-                                                StatCardTitle="Imports"/>
-                    <dashboardcontrols:StatCard Grid.Column="2" 
-                                                StatCardBackground="LightGreen"
-                                                StatCardData="102"
-                                                StatCardIcon="Export"
-                                                StatCardTitle="Exports"/>
-                    <dashboardcontrols:StatCard Grid.Column="4" 
-                                                StatCardBackground="LightSteelBlue" 
-                                                StatCardData="652"
-                                                StatCardIcon="AccountGroup"
-                                                StatCardTitle="Customers"/>
-                    <dashboardcontrols:StatCard Grid.Column="6" 
-                                                StatCardBackground="LightYellow" 
-                                                StatCardData="3626"
-                                                StatCardIcon="ChartBellCurveCumulative"
-                                                StatCardTitle="Sales"/>
+                    <dcontrols:StatisticCard ItemBackground="LightCyan"
+                                             ItemData="232" 
+                                             ItemIcon="import"
+                                             ItemCaption="Imports"/>
+                    <dcontrols:StatisticCard Grid.Column="2"
+                                                     ItemBackground="LightGreen"
+                                                     ItemData="102"
+                                                     ItemIcon="Export"
+                                                     ItemCaption="Exports"/>
+                    <dcontrols:StatisticCard Grid.Column="4" 
+                                                     ItemBackground="LightSteelBlue" 
+                                                     ItemData="652"
+                                                     ItemIcon="AccountGroup"
+                                                     ItemCaption="Customers"/>
+                    <dcontrols:StatisticCard Grid.Column="6" 
+                                             ItemBackground="LightYellow" 
+                                             ItemData="3626"
+                                             ItemIcon="ChartBellCurveCumulative"
+                                             ItemCaption="Sales"/>
                 </Grid>
                 <!--#endregion-->
             </Grid>
             <Grid Grid.Column="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
-                <!--#region Recently Added Section -->
+                <!--#region New Product Section -->
                 <Border Margin="0 0 0 20" Style="{StaticResource ContainerStyle}">
-                    <StackPanel>
-                        <TextBlock Style="{StaticResource ContainerTitleStyle}" Text="Recently Added"/>
-                        <!-- User Card -->
-                        <dashboardcontrols:UserCard DownPrice="$1330"
-                                                    Image="/Assets/Vegetables/broccoli.png"
-                                                    IsActive="True"
-                                                    Title="Carrot"
-                                                    UpPrice="$2000"/>
-                        <Separator Margin="0 10 0 0" Opacity="0"/>
-                        <dashboardcontrols:UserCard DownPrice="$1330"
-                                                    Image="/Assets/Vegetables/carrot.png"
-                                                    IsActive="True"
-                                                    Title="Carrot"
-                                                    UpPrice="$2000"/>
-                        <Separator Margin="0 10 0 0" Opacity="0"/>
-                        <dashboardcontrols:UserCard DownPrice="$1330"
-                                                    Image="/Assets/Vegetables/peas.png"
-                                                    IsActive="True"
-                                                    Title="Carrot"
-                                                    UpPrice="$2000"/>
-                    </StackPanel>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Style="{StaticResource ContainerTitleStyle}" Text="New"/>
+                        <dcontrols:NewItemCard Grid.Row="2"
+                                               ItemName="Carrot"
+                                               ItemRecievedDate="12/13/24"
+                                               ItemStock="1500"
+                                               ItemThumbnail="/Assets/Vegetables/broccoli.png"/>
+                        <dcontrols:NewItemCard Grid.Row="4"
+                                                       ItemName="Kale"
+                                                       ItemRecievedDate="11/10/24"
+                                                       ItemStock="2000"
+                                                       ItemThumbnail="/Assets/Vegetables/carrot.png"/>
+                        <dcontrols:NewItemCard Grid.Row="6"
+                                                       ItemName="Peas"
+                                                       ItemRecievedDate="07/01/24"
+                                                       ItemStock="3500"
+                                                       ItemThumbnail="/Assets/Vegetables/peas.png"/>
+                    </Grid>
                 </Border>
                 <!--#endregion-->
-                <!--#region Tracking Products Section -->
+                <!--#region Track Item Section -->
                 <Border Grid.Row="1" Style="{StaticResource ContainerStyle}">
-                    <dashboardcontrols:Reminder/>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Style="{StaticResource ContainerTitleStyle}" Text="Track"/>
+                        <dcontrols:TrackItemCard Grid.Row="2" ItemName="Kale" ItemStock="7000"/>
+                        <dcontrols:TrackItemCard Grid.Row="4" ItemName="Tomato" ItemStock="8000"/>
+                        <dcontrols:TrackItemCard Grid.Row="6" ItemName="Onion" ItemStock="2000"/>
+                        <dcontrols:TrackItemCard Grid.Row="6" ItemName="Onion" ItemStock="2000"/>
+                    </Grid>
                 </Border>
                 <!--#endregion-->
             </Grid>
