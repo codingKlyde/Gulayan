@@ -12,3 +12,5 @@ This application is designed to manage vegetable inventory using a local SQLite 
 - Third-Party Libraries: Utilizes libraries for icons, controls, and design elements.
 
 ## Screenshots
+![Screenshot 2024-08-23 163116](https://github.com/user-attachments/assets/f0594725-4d20-442c-a5ef-84cf4f770d5c)
+![Screenshot 2024-08-23 163131](https://github.com/user-attachments/assets/e244d126-1414-48cf-abe3-8a0c4fc71f81)
