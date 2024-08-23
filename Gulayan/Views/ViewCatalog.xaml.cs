@@ -19,8 +19,30 @@ namespace Gulayan.Views
         {
             InitializeComponent();
             ReadProduct();
-            TotalProduct();
+            UpdateTotalProductCount();
         }
+
+        // TOTAL PRODUCTS
+        private int GetTotalProductCount()
+        {
+            using (ProductDataContext context = new ProductDataContext())
+            {
+                return context.Products.Count();
+            }
+        }
+        public void UpdateTotalProductCount()
+        {
+            try
+            {
+                int count = GetTotalProductCount();
+                txtblckTotalProduct.Text = count.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error fetching total product count: {ex.Message}");
+            }
+        }
+
 
         // IMPORT
         private void bttnImport_Click(object sender, RoutedEventArgs e)
@@ -166,7 +188,9 @@ namespace Gulayan.Views
                     context.Products.Remove(product);
                     context.SaveChanges();
                     ReadProduct();
+                    UpdateTotalProductCount();
                     MessageBox.Show("Product deleted successfully!");
+
                 }
             }
         }
@@ -189,24 +213,29 @@ namespace Gulayan.Views
                 context.SaveChanges();
             }
             ReadProduct();
+            UpdateTotalProductCount();
         }
         private void OpenAddProductModal_Click(object sender, RoutedEventArgs e)
         {
-            if (ModalContent.Visibility == Visibility.Collapsed)
-                ModalContent.Visibility = Visibility.Visible;
+            UpdateModalContent.Visibility = Visibility.Collapsed;
+
+            if (cntntcntrlAddModal.Visibility == Visibility.Collapsed)
+                cntntcntrlAddModal.Visibility = Visibility.Visible;
             else
-                ModalContent.Visibility = Visibility.Collapsed;
+                cntntcntrlAddModal.Visibility = Visibility.Collapsed;
         }
         // This method executes during runtime
         private void AddProductControl_ProductAdded(object sender, Product newProduct)
         {
             AddProduct(newProduct);
-            ModalContent.Visibility = Visibility.Collapsed;
+            cntntcntrlAddModal.Visibility = Visibility.Collapsed;
         }
 
         // UPDATE
-        private void OpenUpdateProductModal_Click(object sender, RoutedEventArgs e)
+        private void bttnUpdate_Click(object sender, RoutedEventArgs e)
         {
+            cntntcntrlAddModal.Visibility = Visibility.Collapsed;
+
             Button? button = sender as Button;
             if (button != null)
             {
@@ -223,16 +252,7 @@ namespace Gulayan.Views
         private void UpdateProductModal_ProductUpdated(object sender, Product newProduct)
         {
             ReadProduct();
-            ModalContent.Visibility = Visibility.Collapsed;
-        }
-
-        public void TotalProduct()
-        {
-            using (ProductDataContext context = new ProductDataContext())
-            {
-                int count = context.Products.Count();
-                txtblckTotalProduct.Text = count.ToString();
-            }
+            UpdateModalContent.Visibility = Visibility.Collapsed;
         }
     }
 }

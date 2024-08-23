@@ -107,16 +107,6 @@
                               Style="{DynamicResource DataGridStyle1}"
                               x:Name="dtgrdVegetable">
                         <DataGrid.Columns>
-                            <!--#region CHECKBOX -->
-                            <!-- <DataGridCheckBoxColumn CanUserResize="False" Width="auto"> -->
-                            <!--  <DataGridCheckBoxColumn.HeaderTemplate> -->
-                            <!-- <DataTemplate> -->
-                            <!-- <CheckBox Style="{DynamicResource CheckBoxStyle1}" /> -->
-                            <!--   </DataTemplate> -->
-                            <!-- </DataGridCheckBoxColumn.HeaderTemplate> -->
-                            <!-- </DataGridCheckBoxColumn> -->
-                            <!-- Batch Number -->
-                            <!--#endregion-->
                             <DataGridTextColumn Binding="{Binding ProductBatchNumber}"
                                                 Header="Batch" 
                                                 IsReadOnly="True" 
@@ -145,7 +135,7 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <Button Click="OpenUpdateProductModal_Click" CommandParameter="{Binding}" Style="{StaticResource OperationEditButtonStyle}">
+                                            <Button Click="bttnUpdate_Click" CommandParameter="{Binding}" Style="{StaticResource OperationEditButtonStyle}">
                                                 <iconMaterial:PackIconMaterial Kind="Pen" Style="{StaticResource OperationButtonIconStyle}"/>
                                             </Button>
                                             <Button Click="bttnDelete_Click" CommandParameter="{Binding}" Margin="5 0 0 0" Style="{StaticResource OperationRemoveButtonStyle}">
@@ -165,7 +155,7 @@
             <ContentControl Grid.Column="1" 
                             Margin="20 0 0 0"
                             Visibility="Collapsed"
-                            x:Name="ModalContent">
+                            x:Name="cntntcntrlAddModal">
                 <catalogcontrols:AddProductModal x:Name="AddProductControl" ProductAdded="AddProductControl_ProductAdded"/>
             </ContentControl>
             <!--#endregion-->

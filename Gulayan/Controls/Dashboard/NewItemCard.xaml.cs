@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using Gulayan.DataContexts;
+using Gulayan.Models;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 

@@ -20,7 +20,10 @@
 
     <Border Background="LightGray" Padding="10">
         <StackPanel>
-            <TextBlock d:Text="Item Name" FontSize="{StaticResource text-lg}" Text="{Binding ElementName=ti, Path=ItemName}"/>
+            <TextBlock d:Text="Item Name"
+                       FontSize="{StaticResource text-base}" 
+                       FontWeight="SemiBold"
+                       Text="{Binding ElementName=ti, Path=ItemName}"/>
             <TextBlock d:Text="00000" FontSize="{StaticResource text-sm}" Text="{Binding ElementName=ti, Path=ItemStock}"/>
         </StackPanel>
     </Border>

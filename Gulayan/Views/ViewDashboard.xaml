@@ -20,184 +20,205 @@
  
     <Border Padding="20">
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="auto"/>
-            </Grid.ColumnDefinitions>
-            <Grid Margin="0 0 20 0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="auto"/>
-                </Grid.RowDefinitions>
-                <!--#region BANNER SECTION -->
-                <Border Grid.Column="1" Margin="0 0 0 20">
-                    <TextBlock FontSize="{StaticResource text-base}"
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <!--#region BANNER SECTION -->
+            <Border Grid.Column="1" Margin="0 0 0 20">
+                <TextBlock FontSize="{StaticResource text-sm}"
                                HorizontalAlignment="Center" 
                                Text="{Binding Quote}"
                                VerticalAlignment="Center"/>
-                </Border>
-                <!--#endregion-->
-                <!--#region CHART -->
-                <Border Grid.Row="1" Style="{StaticResource ContainerStyle}">
-                    <Grid>
-                        <!-- Legend -->
-                        <controls:Legends HorizontalAlignment="Right" Margin="0 8 10 0" VerticalAlignment="Top"/>
-                        <!--#region CHART -->
-                        <liveCharts:CartesianChart LegendLocation="None" Margin="5 40 0 60">
-                            <liveCharts:CartesianChart.AxisX>
-                                <liveCharts:Axis Foreground="#90a3b2" ShowLabels="True">
-                                    <liveCharts:Axis.Separator>
-                                        <liveCharts:Separator Step="2" StrokeThickness="0"/>
-                                    </liveCharts:Axis.Separator>
-                                </liveCharts:Axis>
-                            </liveCharts:CartesianChart.AxisX>
-                            <liveCharts:CartesianChart.AxisY>
-                                <liveCharts:Axis Foreground="#90a3b2" 
-                               MaxValue="350"
-                               MinValue="40" 
-                               ShowLabels="True">
-                                    <liveCharts:Axis.Separator>
-                                        <liveCharts:Separator StrokeThickness="0"/>
-                                    </liveCharts:Axis.Separator>
-                                </liveCharts:Axis>
-                            </liveCharts:CartesianChart.AxisY>
-                            <liveCharts:CartesianChart.DataTooltip>
-                                <liveCharts:DefaultTooltip Background="{StaticResource PrimaryColor}"
-                                         BulletSize="10"
-                                         Foreground="#ffffff"
-                                         Opacity=".7"/>
-                            </liveCharts:CartesianChart.DataTooltip>
-                            <liveCharts:CartesianChart.Series>
-                                <liveCharts:LineSeries Fill="Transparent" 
-                                     StrokeThickness="3" 
-                                     PointGeometrySize="0"
-                                     Values="100, 120, 110, 160, 150, 180, 120, 170, 165, 180">
-                                    <liveCharts:LineSeries.Stroke>
-                                        <LinearGradientBrush>
-                                            <GradientStop Color="#ffffff" Offset=".06"/>
-                                            <GradientStop Color="#2889fc" Offset=".5"/>
-                                            <GradientStop Color="#ffffff" Offset=".93"/>
-                                        </LinearGradientBrush>
-                                    </liveCharts:LineSeries.Stroke>
-                                </liveCharts:LineSeries>
-                                <liveCharts:LineSeries Fill="Transparent" 
-                                     StrokeThickness="3" 
-                                     PointGeometrySize="0"
-                                     Values="180, 240, 200, 220, 220, 270, 200, 260, 220, 240">
-                                    <liveCharts:LineSeries.Stroke>
-                                        <LinearGradientBrush>
-                                            <GradientStop Color="#ffffff" Offset=".06"/>
-                                            <GradientStop Color="#fe6c47" Offset=".5"/>
-                                            <GradientStop Color="#ffffff" Offset=".9"/>
-                                        </LinearGradientBrush>
-                                    </liveCharts:LineSeries.Stroke>
-                                </liveCharts:LineSeries>
-                            </liveCharts:CartesianChart.Series>
-                        </liveCharts:CartesianChart>
-                        <!--#endregion-->
-                        <!-- Note -->
-                        <Grid VerticalAlignment="Bottom">
-                            <iconMaterial:PackIconMaterial Foreground="#f96654" Kind="Information"/>
-                            <TextBlock FontSize="{StaticResource text-base}"
-                                       Foreground="#b7b7b7"
-                                       LineHeight="18"
-                                       Margin="25 0 0 0"
-                                       Text="Net sales, Found on the income statement are used to calculate."
-                                       TextWrapping="Wrap"/>
+            </Border>
+            <!--#endregion-->
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid Margin="0 0 20 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <!--#region CHART -->
+                    <Border Grid.Row="1" Style="{StaticResource ContainerStyle}">
+                        <Grid>
+                            <!-- Legend -->
+                            <controls:Legends HorizontalAlignment="Right" Margin="0 8 10 0" VerticalAlignment="Top"/>
+                            <!--#region CHART -->
+                            <liveCharts:CartesianChart LegendLocation="None" Margin="5 40 0 60">
+                                <liveCharts:CartesianChart.AxisX>
+                                    <liveCharts:Axis Foreground="#90a3b2" ShowLabels="True">
+                                        <liveCharts:Axis.Separator>
+                                            <liveCharts:Separator Step="2" StrokeThickness="0"/>
+                                        </liveCharts:Axis.Separator>
+                                    </liveCharts:Axis>
+                                </liveCharts:CartesianChart.AxisX>
+                                <liveCharts:CartesianChart.AxisY>
+                                    <liveCharts:Axis Foreground="#90a3b2" 
+                         MaxValue="350"
+                         MinValue="40" 
+                         ShowLabels="True">
+                                        <liveCharts:Axis.Separator>
+                                            <liveCharts:Separator StrokeThickness="0"/>
+                                        </liveCharts:Axis.Separator>
+                                    </liveCharts:Axis>
+                                </liveCharts:CartesianChart.AxisY>
+                                <liveCharts:CartesianChart.DataTooltip>
+                                    <liveCharts:DefaultTooltip Background="{StaticResource PrimaryColor}"
+                                   BulletSize="10"
+                                   Foreground="#ffffff"
+                                   Opacity=".7"/>
+                                </liveCharts:CartesianChart.DataTooltip>
+                                <liveCharts:CartesianChart.Series>
+                                    <liveCharts:LineSeries Fill="Transparent" 
+                               StrokeThickness="3" 
+                               PointGeometrySize="0"
+                               Values="100, 120, 110, 160, 150, 180, 120, 170, 165, 180">
+                                        <liveCharts:LineSeries.Stroke>
+                                            <LinearGradientBrush>
+                                                <GradientStop Color="#ffffff" Offset=".06"/>
+                                                <GradientStop Color="#2889fc" Offset=".5"/>
+                                                <GradientStop Color="#ffffff" Offset=".93"/>
+                                            </LinearGradientBrush>
+                                        </liveCharts:LineSeries.Stroke>
+                                    </liveCharts:LineSeries>
+                                    <liveCharts:LineSeries Fill="Transparent" 
+                               StrokeThickness="3" 
+                               PointGeometrySize="0"
+                               Values="180, 240, 200, 220, 220, 270, 200, 260, 220, 240">
+                                        <liveCharts:LineSeries.Stroke>
+                                            <LinearGradientBrush>
+                                                <GradientStop Color="#ffffff" Offset=".06"/>
+                                                <GradientStop Color="#fe6c47" Offset=".5"/>
+                                                <GradientStop Color="#ffffff" Offset=".9"/>
+                                            </LinearGradientBrush>
+                                        </liveCharts:LineSeries.Stroke>
+                                    </liveCharts:LineSeries>
+                                </liveCharts:CartesianChart.Series>
+                            </liveCharts:CartesianChart>
+                            <!--#endregion-->
+                            <!-- Note -->
+                            <Grid VerticalAlignment="Bottom">
+                                <iconMaterial:PackIconMaterial Foreground="#f96654" Kind="Information"/>
+                                <TextBlock FontSize="{StaticResource text-base}"
+                                 Foreground="#b7b7b7"
+                                 LineHeight="18"
+                                 Margin="25 0 0 0"
+                                 Text="Net sales, Found on the income statement are used to calculate."
+                                 TextWrapping="Wrap"/>
+                            </Grid>
                         </Grid>
+                    </Border>
+                    <!--#endregion-->
+                    <!--#region Statistic Section -->
+                    <Grid Grid.Row="2" Margin="0 20 0 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <dcontrols:StatisticCard ItemBackground="LightCyan"
+                                       ItemData="232" 
+                                       ItemIcon="import"
+                                       ItemCaption="Imports"/>
+                        <dcontrols:StatisticCard Grid.Column="2"
+                                               ItemBackground="LightGreen"
+                                               ItemData="102"
+                                               ItemIcon="Export"
+                                               ItemCaption="Exports"/>
+                        <dcontrols:StatisticCard Grid.Column="4" 
+                                               ItemBackground="LightSteelBlue" 
+                                               ItemData="652"
+                                               ItemIcon="AccountGroup"
+                                               ItemCaption="Customers"/>
+                        <dcontrols:StatisticCard Grid.Column="6" 
+                                       ItemBackground="LightYellow" 
+                                       ItemData="3626"
+                                       ItemIcon="ChartBellCurveCumulative"
+                                       ItemCaption="Sales"/>
                     </Grid>
-                </Border>
-                <!--#endregion-->
-                <!--#region Statistic Section -->
-                <Grid Grid.Row="2" Margin="0 20 0 0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="20"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="20"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="20"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <dcontrols:StatisticCard ItemBackground="LightCyan"
-                                             ItemData="232" 
-                                             ItemIcon="import"
-                                             ItemCaption="Imports"/>
-                    <dcontrols:StatisticCard Grid.Column="2"
-                                                     ItemBackground="LightGreen"
-                                                     ItemData="102"
-                                                     ItemIcon="Export"
-                                                     ItemCaption="Exports"/>
-                    <dcontrols:StatisticCard Grid.Column="4" 
-                                                     ItemBackground="LightSteelBlue" 
-                                                     ItemData="652"
-                                                     ItemIcon="AccountGroup"
-                                                     ItemCaption="Customers"/>
-                    <dcontrols:StatisticCard Grid.Column="6" 
-                                             ItemBackground="LightYellow" 
-                                             ItemData="3626"
-                                             ItemIcon="ChartBellCurveCumulative"
-                                             ItemCaption="Sales"/>
+                    <!--#endregion-->
                 </Grid>
-                <!--#endregion-->
-            </Grid>
-            <Grid Grid.Column="2">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                </Grid.RowDefinitions>
-                <!--#region New Product Section -->
-                <Border Margin="0 0 0 20" Style="{StaticResource ContainerStyle}">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="10"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="10"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="10"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <TextBlock Style="{StaticResource ContainerTitleStyle}" Text="New"/>
-                        <dcontrols:NewItemCard Grid.Row="2"
-                                               ItemName="Carrot"
-                                               ItemRecievedDate="12/13/24"
-                                               ItemStock="1500"
-                                               ItemThumbnail="/Assets/Vegetables/broccoli.png"/>
-                        <dcontrols:NewItemCard Grid.Row="4"
-                                                       ItemName="Kale"
-                                                       ItemRecievedDate="11/10/24"
-                                                       ItemStock="2000"
-                                                       ItemThumbnail="/Assets/Vegetables/carrot.png"/>
-                        <dcontrols:NewItemCard Grid.Row="6"
-                                                       ItemName="Peas"
-                                                       ItemRecievedDate="07/01/24"
-                                                       ItemStock="3500"
-                                                       ItemThumbnail="/Assets/Vegetables/peas.png"/>
-                    </Grid>
-                </Border>
-                <!--#endregion-->
-                <!--#region Track Item Section -->
-                <Border Grid.Row="1" Style="{StaticResource ContainerStyle}">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="10"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="10"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="10"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <TextBlock Style="{StaticResource ContainerTitleStyle}" Text="Track"/>
-                        <dcontrols:TrackItemCard Grid.Row="2" ItemName="Kale" ItemStock="7000"/>
-                        <dcontrols:TrackItemCard Grid.Row="4" ItemName="Tomato" ItemStock="8000"/>
-                        <dcontrols:TrackItemCard Grid.Row="6" ItemName="Onion" ItemStock="2000"/>
-                        <dcontrols:TrackItemCard Grid.Row="6" ItemName="Onion" ItemStock="2000"/>
-                    </Grid>
-                </Border>
-                <!--#endregion-->
+                <Grid Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <!--#region New Product Section -->
+                    <Border Margin="0 0 0 20" Style="{StaticResource ContainerStyle}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Style="{StaticResource ContainerTitleStyle}" Text="New"/>
+                            <dcontrols:NewItemCard Grid.Row="2"
+                                                   ItemName="Carrot"
+                                                   ItemRecievedDate="12/13/24"
+                                                   ItemStock="1500"
+                                                   ItemThumbnail="/Assets/Vegetables/broccoli.png"
+                                                   x:Name="newitemCard1"/>
+                            <dcontrols:NewItemCard Grid.Row="4"
+                                                   ItemName="Kale"
+                                                   ItemRecievedDate="11/10/24"
+                                                   ItemStock="2000"
+                                                   ItemThumbnail="/Assets/Vegetables/carrot.png"
+                                                   x:Name="newitemCard2"/>
+                            <dcontrols:NewItemCard Grid.Row="6"
+                                                   ItemName="Peas"
+                                                   ItemRecievedDate="07/01/24"
+                                                   ItemStock="3500"
+                                                   ItemThumbnail="/Assets/Vegetables/peas.png"
+                                                   x:Name="newitemCard3"/>
+                        </Grid>
+                    </Border>
+                    <!--#endregion-->
+                    <!--#region Track Item Section -->
+                    <Border Grid.Row="1" Style="{StaticResource ContainerStyle}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Style="{StaticResource ContainerTitleStyle}" Text="Track"/>
+                            <dcontrols:TrackItemCard Grid.Row="2" ItemName="Kale" ItemStock="7000"/>
+                            <dcontrols:TrackItemCard Grid.Row="4" ItemName="Tomato" ItemStock="8000"/>
+                            <dcontrols:TrackItemCard Grid.Row="6" ItemName="Onion" ItemStock="2000"/>
+                            <Border Background="{StaticResource PrimaryBrush}"
+                                    Grid.Row="8"
+                                    HorizontalAlignment="Center"
+                                    Padding="7">
+                                <iconMaterial:PackIconMaterial Foreground="White"
+                                                               Height="15"
+                                                               Kind="Plus"
+                                                               Width="15"/>
+                            </Border>
+                        </Grid>
+                    </Border>
+                    <!--#endregion-->
+                </Grid>
             </Grid>
         </Grid>
     </Border>

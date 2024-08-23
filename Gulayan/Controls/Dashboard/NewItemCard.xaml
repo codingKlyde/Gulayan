@@ -38,10 +38,10 @@
             <!--#region Item Thumbnail -->
             <Border Background="PaleGreen" CornerRadius="4" Padding="5">
                 <Image d:Source="/Assets/Vegetables/kale.png" 
-                       Height="30"
+                       Height="25"
                        Source="{Binding ElementName=ni, Path=ItemThumbnail}"
                        VerticalAlignment="Center"
-                       Width="30"/>
+                       Width="25"/>
             </Border>
             <!--#endregion-->
             <Grid Grid.Column="2">
